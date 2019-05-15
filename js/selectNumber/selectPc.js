@@ -1,5 +1,5 @@
 
-(function (mui, doc) {
+(function (mui, doc, layer) {
     var pageNo = 1;
     var pageSize = 50;
     var keyWord = '';
@@ -119,29 +119,52 @@
     mui(".mui-content").on('tap', '.next', function (e) {
         SerNumber()
     });
+    // 获取支付结果
+    function getQrcode() {
+        console.log('set')
+        let timer = setInterval(() => {
+            mui.ajax(config.httpPath + 'api/serNumberOrder/hadPay.do', {
+                data: {},
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: function (res) {
+                    console.log(res)
+                    if (res.data == '支付成功！') {
+                        clearInterval(timer)
+                    } else {
+                        clearInterval(timer)
+                        mui.alert("支付失败！");
+                        history.go(-1);
+                    }
+                },
+            });
+        }, 1500)
+    }
     // 提交选中内容
     function SerNumber() {
         if (serNumberId == '') {
             mui.alert('请选择号码')
             return;
         }
-        mui.ajax(config.httpPath + 'api/serNumberOrder/addSerNumberOrder', {
+        alert(serNumberId + " , " + amount + " , " + name + " , " + mobileno + " , " + cerId + " , " + province + " , " + city + " , " +
+            county + " , " + detailedAddress + " , " + payFlag + " , " + backUrl);
+        mui.ajax(config.httpPath + 'api/serNumberOrder/addSerNumberOrderPc', {
             data: {
-                siteCode,
-                serNumberId,
-                name,
-                mobileno,
-                cerId,
-                province,
-                city,
-                county,
-                detailedAddress,
-
-                setName:'',
-                amount,
+                siteCode: siteCode,
+                serNumberId: serNumberId,
+                name: name,
+                mobileno: mobileno,
+                cerId: cerId,
+                province: province,
+                city: city,
+                county: county,
+                detailedAddress: detailedAddress,
+                setName: '校园网融合套餐',
+                amount: amount,
                 remark: flag,
-                payFlag,
-                backUrl
+                payFlag: payFlag,
+                backUrl: backUrl
             },
             dataType: 'json', //服务器返回json格式数据
             type: 'post', //HTTP请求类型
@@ -152,18 +175,17 @@
                 if (ajaxData.meta.success == false) {
                     mui.alert(ajaxData.meta.message, '提示', '确定', null, 'div');
                 } else {
-                    if (ajaxData.meta.resultCode == '0') {
-                        if (flag == '0') {
-                            
-                        } else if (flag == '1') {
-                            
-                        }
-                    } else if (ajaxData.meta.resultCode == '1') {
-                        
-                    } else {
-                        mui.alert('提交失败', '提示', '确定', null, 'div');
-                    }
-
+                    layer.open({
+                        area: ['300px', '300px'],
+                        type: 2,
+                        closeBtn: 2,
+                        title: false,
+                        shift: 2,
+                        shadeClose: false,
+                        time:120000,
+                        content: config.httpPath + 'api/serNumberOrder/qrcode.do' + '?result=' + ajaxData.data
+                    });
+                    getQrcode();
                 }
             },
             error: function (xhr, type, errorThrown) {
@@ -200,8 +222,10 @@
     function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        var q = window.location.pathname.substr(1).match(reg_rewrite);
+        var r = '?siteCode=58e8599b9d19d34e386c899fbc4508bc&flag=0&payFlag=1&amount=0.01&backUrl=http://szxy.worldve.com/zhmh/weixin/togyxz&name=111&cerId=430721699002154613&mobileno=15116149838&province=123&city=123&county=123&detailedAddress=123'.substr(1).match(reg);
+        // var r = window.location.search.substr(1).match(reg);
+        var q = 'mobile/html-selectNumber/selectPc.html'.substr(1).match(reg_rewrite);
+        // var q = window.location.pathname.substr(1).match(reg_rewrite);
         if (r != null) {
             return unescape(r[2]);
         } else if (q != null) {
@@ -223,4 +247,4 @@
             $('.nextPage').attr('disabled', false);
         }
     }
-}(mui, document))
+}(mui, document, layer))
