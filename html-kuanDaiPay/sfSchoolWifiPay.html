@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>校园无线网缴费</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/setSecurityCode.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .rotate180 {
+            filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">校园无线网缴费</h1>
+</header>
+<div class="mui-content">
+    <div class="padding-10 line25 font16">用户信息<span class="iconfont icon-shijian float-right font12 maincolor">缴费历史</span></div>
+    <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed font14">
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-boshimao1 mui-active"></span><span class="graycolor">&nbsp;学号：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="stu_id" class="oa-contact-position">2014566</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-xingming mui-active"></span><span class="graycolor">&nbsp;姓名：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="name" class="oa-contact-position">周灿灿</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-mobile mui-active"></span><span class="graycolor">&nbsp;手机号码：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="phone" class="oa-contact-position">139****4545</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-shenfengzheng4 mui-active"></span><span class="graycolor">&nbsp;身份证号：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="IDCard" class="oa-contact-position">430321********7421</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-zhuangtai mui-active"></span><span class="graycolor">&nbsp;用户状态：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="user_status" class="oa-contact-position">正常用户</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-iconfontlist mui-active"></span><span class="graycolor">&nbsp;当前套餐：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="taocan" class="oa-contact-position">无线--季卡</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-shijian mui-active"></span><span class="graycolor">&nbsp;生效时间：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="begin_time" class="oa-contact-position">2017年12月1日</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell show display-none">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-shixiao mui-active"></span><span class="maincolor">&nbsp;到期时间：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="end_time" class="oa-contact-position">2017年12月1日</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <button id="xiala" class="mui-text-center width100 bachui font12 gray-8color line25">查看更多信息<span id="xia" class="iconfont icon-wangxia font12" style="display: inherit;"></span></button>
+    <div class="padding-10 line25 font16">校园网络资费标准</div>
+    <ul class="padding-10 bacfff">
+        <li class="font12 gray-8color line25">有线：</li>
+        <li class="mui-text-center">
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">50元</div>
+                <div class="font10 line20">月卡（20M）</div>
+            </button>
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">150元</div>
+                <div class="font10 line20">季卡（20M）</div>
+            </button>
+            <button class="buy width30 orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">200元</div>
+                <div class="font10 line20">半年卡（20M）</div>
+            </button>
+        </li>
+        <div style="clear: both;"></div>
+        <li class="font12 gray-8color line25">无线：</li>
+        <li class="mui-text-center">
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">50元</div>
+                <div class="font10 line20">月卡（20M）</div>
+            </button>
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">150元</div>
+                <div class="font10 line20">季卡（20M）</div>
+            </button>
+            <button class="buy width30 orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">200元</div>
+                <div class="font10 line20">半年卡（20M）</div>
+            </button>
+        </li>
+        <div style="clear: both;"></div>
+        <li class="font12 gray-8color line25">有线+无线：</li>
+        <li class="mui-text-center">
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">50元</div>
+                <div class="font10 line20">月卡（20M）</div>
+            </button>
+            <button class="buy width30 margin-right5per orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">150元</div>
+                <div class="font10 line20">季卡（20M）</div>
+            </button>
+            <button class="buy width30 orangeborder maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">200元</div>
+                <div class="font10 line20">半年卡（20M）</div>
+            </button>
+        </li>
+        <div style="clear: both;"></div>
+        <li class="font12 gray-8color line25">融合卡有线+无线：</li>
+        <li class="mui-text-center">
+            <ul class="width30 margin-right5per grayborder1 maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">50元/月</div>
+                <div class="font10 line20">（有线+无线）</div>
+            </ul>
+            <ul class="width30 margin-right5per maincolor padding-top-bottom5px mui-text-center float-left">
+                <input class="font12 width90 mui-text-center"/>
+                <div class="font10 line20 width100 horbackground margintop-5px ridus10 whitecolor">马上预存</div>
+            </ul>
+            <ul class="width30 maincolor padding-top-bottom5px mui-text-center float-left">
+                <div class="font12 line20">
+                    <span class="iconfont icon-jian"></span>
+                    <input class="font12 width55 bor mui-text-center" value="23" readonly/>
+                    <span class="iconfont icon-jia1"></span>
+                </div>
+                <div class="font10 line20 width100 horbackground margintop-5px ridus10 whitecolor">续费融合卡</div>
+            </ul>
+            <div class="font10 line20 gray-8color">首次预存、首月免费</div>
+        </li>
+        <div style="clear: both;"></div>
+    </ul>
+    <ul class="margintop-5px padding-10">
+        <li class="font12 gray-8color">
+            <span class="maincolor font14">资费说明:</span><br/>
+            1、有线、无线，终端数1，单终端不限流量<br/>
+            2、有线+无线，终端数1，单终端不限流量，任意切换上网终端<br/>
+            3、融合卡：<span class="maincolor">首次预存200元，移网首月免费，</span>宽带按天计费。含2.5GB省内、500M全国、40GB本地流量、入网即送20B个（10GB/月）、50分钟/月、视屏免费看。<br/>
+            4、<span class="maincolor">如遇到充值等其它问题，请拨打电话：？？？？？？？？</span>
+        </li>
+        <li c class="margintop-20px marginbottom-10px padding-top-bottom15px"></li>
+    </ul>
+
+    <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+        <!-- 可选择菜单 -->
+        <ul class="actionsheet bacfff font14">
+            <li class="bachui maincolor mui-text-center padding-10">付款详情</li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">当前套餐</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position">暂无</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">购买套餐类型</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position">有线——期卡（20M）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">缴费时长</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position">一学期</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">缴费对象</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position">周灿灿 学号：20178569</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">付款方式</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position">微信</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">支付金额</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="" class="oa-contact-position maincolor">200元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="padding-left-right10px">
+                <button id="submit" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font16 btn">
+                    确认支付
+                </button>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/kuanDai/payList.js"></script>
+<script>
+    //点击购物车从下往上弹出购物车详情
+    mui(".mui-content").on('tap','.buy',function(){
+        mui('#sheet1').popover('toggle');
+    });
+    //进来的时候先只显示部分，点击下拉箭头后展示所有，再点击就隐藏多余的
+    var detailFlag = 'true';
+    document.getElementById("xiala").addEventListener('tap',function(){
+        //点击响应逻辑
+        if(detailFlag ==="true"){
+            //显示所有
+            detailFlag = "false"
+            $('.show').removeClass('display-none');
+            $('#xia').addClass('rotate180');
+        }else{
+            //显示部分
+            detailFlag = 'true';
+            $('.show').addClass('display-none');
+            $('#xia').removeClass('rotate180');
+        }
+    });
+</script>
+</body>
+</html>

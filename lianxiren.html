@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">联系人</h1>
+</header>
+<div class="mui-content">
+    <ul class="mui-table-view" id="listArea">
+        <!--<li class="mui-table-view-cell" id="mode">所有联系人</li>
+        <li class="mui-table-view-cell" ><div>张三</div><div>15111383776</div></li>-->
+    </ul>
+</div>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script type="text/javascript">
+    mui.init();
+    mui.plusReady(function() {
+        // 扩展API加载完毕，现在可以正常调用扩展API
+        plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(addressbook) {
+            addressbook.find(["displayName", "phoneNumbers"], function(contacts) {
+                for(var i = 0, len = contacts.length; i < len; i++) {
+                    var li = document.getElementById("mode").cloneNode(true);
+                    li.innerHTML = "<div class='name'>"+contacts[i].displayName + "</div><div class='phoneNum'>" + (contacts[i].phoneNumbers.length == 0 ? "" : contacts[i].phoneNumbers[0].value)+"</div>";
+                    document.getElementById("listArea").appendChild(li);
+                }
+            }, function() {
+                mui.toast("获取电话簿失败 ");
+            }, {
+                multiple: true
+            });
+        }, function(e) {
+            mui.toast("获取电话簿失败 " + e.message);
+        });
+    });
+    //点击联系人
+    mui(".mui-content").on('tap','li',function() {
+//        alert($(this).text());
+        var name_string =  $(this).find("div").eq(0).text();
+        var phoneNum_string =  $(this).find("div").eq(1).text();
+//        mui.currentWebview.close();
+        mui.openWindow({
+            url:'html-huaFei/jiaoHuaFei.html?name='+name_string+'&&phone='+phoneNum_string,
+            id:'jiaoHuaFei'+"&&?time="+new Date().getTime(),
+            extras:{}
+        });
+    });
+
+</script>
+</body>
+
+</html>

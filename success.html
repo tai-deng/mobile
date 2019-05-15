@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>修改成功</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <h1 class="mui-title whitecolor font18">修改成功</h1>
+</header>
+<div class="mui-content">
+    <ul class="margintop-20px mui-text-center" style="padding: 20px;">
+        <li style="margin-top: 20%;">
+            <!--<img src="img/xiao.png"/>-->
+            <span class="iconfont icon-chenggong-yin greencolor font26"></span>
+        </li>
+        <li class="maincolor font18 padding-top10">套餐修改成功</li>
+        <li class="maincolor font16 ">生效日期：<span class="sxTime"></span></li>
+        <li style="margin-top: 15%;">
+            <button id="yujiao" type="button" class="mui-btn display-none ridus5 horbackground mui-btn-outlined whitecolor font18 btn">
+                预缴费用
+            </button>
+        </li>
+        <li style="margin-top: 5%;">
+            <button id="back" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font18 btn">
+                返回首页
+            </button>
+        </li>
+    </ul>
+    <div id="noTips" class="gray-8color font14 padding-10"><span class="maincolor">温馨提示：</span><br/>
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;-->1、套餐更改成功后，需要支付费用后在<span class="sxTime"></span>方可生效。
+    </div>
+    <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+        <!-- 可选择菜单 -->
+        <ul class="actionsheet bacfff font14">
+            <li class="bachui maincolor mui-text-center padding-10">付款详情</li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">预存套餐</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyTaocan" class="oa-contact-position">暂无</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">缴费对象</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyName" class="oa-contact-position">周灿灿 学号：20178569</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">套餐资费</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buymoney" class="oa-contact-position"></span>元/周期
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">付款方式</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyChannel" class="oa-contact-position">微信</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">账户余额</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="accountMoney" class="oa-contact-position">200</span><span>元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">支付金额</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyPrice" class="oa-contact-position maincolor">200</span><span>元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="padding-left-right10px">
+                <button id="submit" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font16 btn">
+                    确认支付
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script src="js/URI.min.js"></script>
+<!--<script src="js/new/success.js"></script>-->
+<script>
+        document.write('<script src="js/new/success.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>

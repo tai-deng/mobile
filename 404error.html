@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>404页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">哎呀~出错了</h1>
+</header>
+<div class="mui-content" style="background-color: #f9f3ee;" >
+    <ul class="margintop-20px mui-text-center" style="margin: 20px;">
+        <li style="margin-top: 20%;">
+            <img src="img/cuo.jpg" style="width: 100%">
+        </li>
+        <li class=" font18 margintop-20px">: ( 很抱歉，您没权限访问此页面</li>
+        <li class="" style="margin-top: 15%;">
+            <button id="backindex" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font18 btn30">
+                返回首页
+            </button>
+            <button id="back" type="button" class="mui-btn ridus5 bac999 mui-btn-outlined whitecolor font18 btn30" style="margin-left: 20px;">
+                返回上一步
+            </button>
+        </li>
+    </ul>
+
+</div>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script>
+    var height = window.screen.availHeight;
+    $(".mui-content").height(height-45);
+    document.getElementById("backindex").addEventListener('tap',function(){
+        //点击响应逻辑
+        mui.openWindow({
+            url:'tabbar.html',
+            id:'tabbar',
+            extras:{}
+        });
+    });
+    document.getElementById("back").addEventListener('tap',function(){
+        history.go(-1);
+    });
+</script>
+</body>
+</html>

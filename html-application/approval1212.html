@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/approveComplete.css">
+    <link rel="stylesheet" href="../css/approvalFailed.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">查看详情</h1>
+</header>
+<div class="mui-content content">
+    <ul>
+        <li class="line40 font16 paddingleft10px">当前状态：
+            <span id="status" class="horbackground padding-left-right10px font14 whitecolor ridus3">审批完成</span>
+            <span id="getBack" class="maincolor float-right paddingright10 display-none">撤销申请</span>
+        </li>
+        <li class="comp-statu paddingleft10px">
+            <div class="nearsite-message font14">
+                <table id="hjbContainer" style="width: 100%;">
+
+                </table>
+            </div>
+        </li>
+        <li id="reapplyDiv" class="comp-statu margintop-10px display-none">
+            <ul class="nearsite-message">
+                <li class="font16 float-left">
+                    申请已经被撤回
+                    <div id="backTime" class="font14 graycolor">如有需要可重新申请</div>
+                </li>
+                <li id="reapply" class="float-right font16 whitecolor horbackground padding-10 ridus5"> &nbsp;&nbsp;重新申请&nbsp;&nbsp; </li>
+                <div style="clear:both;"></div>
+            </ul>
+        </li>
+        <li class="comp-statu margintop-10px padding-10">
+            <div class="font16 paddingbottom5">申请详情</div>
+            <table id="table" class="font14 mui-text-center" style="width: 100%;">
+                <!--<tr class="grayborder" style="height: 30px;">
+                    <td style="background-color: #eeeeee;width: 30%;border-right: 1px solid #dddddd;">申请人</td>
+                    <td>张三</td>
+                </tr>
+                <tr class="grayborder" style="height: 30px;">
+                    <td style="background-color: #eeeeee;width: 30%;border-right: 1px solid #dddddd;">所在系部</td>
+                    <td>机械系</td>
+                </tr>
+                <tr class="grayborder" style="height: 30px;">
+                    <td style="background-color: #eeeeee;width: 30%;border-right: 1px solid #dddddd;">调课班级</td>
+                    <td>123班</td>
+                </tr>
+                <tr class="grayborder height30px">
+                    <td style="background-color: #eeeeee;width: 30%;border-right: 1px solid #dddddd;">申请日期</td>
+                    <td>2017-06-30 11:00</td>
+                </tr>
+                <tr class="grayborder height30px table-display-none display-none">
+                    <td class="table-left">所在系部</td>
+                    <td>机械系</td>
+                </tr>
+                <tr class="grayborder height30px table-display-none display-none">
+                    <td class="table-left">调课班级</td>
+                    <td>123班</td>
+                </tr>-->
+            </table>
+        </li>
+        <li class="comp-statu padding-10 mui-text-center ">
+            <span id="xiala" class="mui-icon mui-icon-arrowdown" style="width: 30%;"></span>
+        </li>
+        <li></li>
+        <li>
+            <!--评价-->
+            <ul id="pingjia" class="padding-10 display-none">
+                <li class="margintop-15px">
+                    <span class="iconfont icon-pingjia2 maincolor"></span>
+                    <span class="font14">您对本次服务的评价:</span>
+                    <span id="xing1" data-id="1" class="iconfont icon-xing graycolor"></span>
+                    <span id="xing2" data-id="2" class="iconfont icon-xing graycolor"></span>
+                    <span id="xing3" data-id="3" class="iconfont icon-xing graycolor"></span>
+                    <span id="xing4" data-id="4" class="iconfont icon-xing graycolor"></span>
+                    <span id="xing5" data-id="5" class="iconfont icon-xing graycolor"></span>
+                    <span id="pingjiaText" class="font12 graycolor"></span>
+                </li>
+                <li class="margintop-15px">
+                    <textarea id="pjText" class="font14" rows="3" placeholder="非必填"></textarea>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="padding-10 fixed-bottom">
+    <button id="back" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        返回
+    </button>
+</div>
+<script id="hjbItemTemp" type="text/html">
+    {{each taskInfoVo as prd index}}
+        {{if index == "0"}}
+        <tr >
+            <td class="com-stutas-submit">
+                <div class="com-stutas-line1">qian</div>
+            </td>
+            <td style="width: 18px;">
+                <div class="iconfont icon-wancheng com-stutas-img1 font18 maincolor"></div>
+                <!--<img src="../img/icon-right.png" class="com-stutas-img1">-->
+            </td>
+            <td>
+                <div class="comp-status-backg">
+                    <span id="step1">{{prd.name}}</span>
+                    <div id="">{{prd.completeDate | formatDateTime:prd.completeDate/1000}}</div>
+                </div>
+            </td>
+        </tr>
+        {{else if index == taskInfoVo.length-1}}
+        <tr>
+            {{if prd.status != '0'}}
+            <td style="width: 1px;vertical-align:top;">
+                <div class="com-stutas-line3" style=""></div>
+            </td>
+            {{else}}
+            <td style="width: 1px;vertical-align:top;">
+                <div class="com-stutas-line3-gray" style=""></div>
+            </td>
+            {{/if}}
+            <td class="verticaltop" style="width: 18px;">
+                <div class="iconfont {{if prd.status == '0'}}icon-wancheng {{else if prd.status == '1'}}icon-gth {{else if prd.status == '3'}}icon-quxiao1 {{else}}icon-wancheng{{/if}}
+                com-stutas-img3 font18 {{if prd.status != 0}}maincolor{{else}}backgroundcolor{{/if}} bacfff"></div>
+                <!--<img src="../img/icon-right.png" class="com-stutas-img2">-->
+            </td>
+            <td>
+                <div class="comp-status-backg margintop-20px">
+                    <span id="{{prd.id}}-text">{{prd.name}}</span>
+                    {{if prd.completeDate}}
+                    <div id="{{prd.id}}-time">{{prd.completeDate | formatDateTime:prd.completeDate/1000}}</div>
+                    {{else}}
+                    <div id="{{prd.id}}-time">等待审批</div>
+                    {{/if}}
+                    {{if prd.status != '0'}}
+                    <span data-id="{{prd.id}}" id="{{prd.id}}-xiala" class="mui-icon mui-icon-arrowdown com-stutas-open step-xiala"></span>
+                    {{/if}}
+                </div>
+                <div id="{{prd.id}}-xiala-content" class="comp-status-tips display-none">
+                    {{if prd.content}}
+                        {{prd.content}}
+                    {{else}}
+                        {{if prd.status == '2'}}
+                        同意
+                        {{else if prd.status == '3'}}
+                        撤销成功
+                        {{else}}
+                        不同意
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            {{if prd.status != '0'}}
+            <td class="com-stutas-line2"></td>
+            {{else}}
+            <td class="com-stutas-line2-gray verticaltop">
+                <div class="com-stutas-line3-gray">qian</div>
+            </td>
+            {{/if}}
+            <td class="verticaltop" style="width: 18px;">
+                <div class="iconfont icon-wancheng com-stutas-img3 font18 {{if prd.status != 0}}maincolor{{else}}backgroundcolor{{/if}} bacfff"></div>
+                <!--<img src="../img/icon-right.png" class="com-stutas-img2">-->
+            </td>
+            <td>
+                <div class="comp-status-backg margintop-20px">
+                    <span id="{{prd.id}}-text">{{prd.name}}</span>
+                    {{if prd.completeDate}}
+                    <div id="{{prd.id}}-time">{{prd.completeDate | formatDateTime:prd.completeDate/1000}}</div>
+                    {{else}}
+                    <div id="{{prd.id}}-time">等待审批</div>
+                    {{/if}}
+                    {{if prd.status != '0'}}
+                    <span data-id="{{prd.id}}" id="{{prd.id}}-xiala" class="mui-icon mui-icon-arrowdown com-stutas-open step-xiala"></span>
+                    {{/if}}
+                </div>
+                <div id="{{prd.id}}-xiala-content" class="comp-status-tips display-none">
+                    {{if prd.content}}
+                    {{prd.content}}
+                    {{else}}
+                        {{if prd.status == '2'}}
+                        同意
+                        {{else if prd.status == '3'}}
+                        撤销成功
+                        {{else}}
+                        不同意
+                        {{/if}}
+                    {{/if}}
+                </div>
+            </td>
+        </tr>
+        {{/if}}
+    {{/each}}
+</script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/biz/approval1212.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通知</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/appIndex.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground" ><!--style="position: fixed;top: 0px;"-->
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">通知</h1>
+</header>
+<div class="mui-content">
+    <div></div>
+    <ul class="mui-table-view bacdan">
+        <li data-id="yewu" class="tongzhi mui-table-view-cell mui-media marginbottom-10px bacfff">
+            <a href="javascript:;">
+                <!--<img class="mui-media-object mui-pull-left" src="img/houqin.png">-->
+                <div class="card-middle1 horbackred float-left">
+                    <i class=" mui-icon iconfont icon-quanbu whitecolor card-png1">
+                        <span class="mui-badge newsred bacfff margintop-10px" style="left: 48px;">0</span>
+                    </i>
+                </div>
+                <div class="mui-media-body font16 ">
+                    <span class="paddingleft10px">业务通知</span>
+                    <span class="backgroundcolor font12 float-right"><!--昨天12:45--></span>
+                    <div style="clear: both;"></div>
+                    <div class="font14">
+                        <p class='mui-ellipsis paddingleft10px'>待办理的业务</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </a>
+        </li>
+        <li data-id="0" class="tongzhi mui-table-view-cell mui-media marginbottom-10px bacfff">
+            <a href="javascript:;">
+                <!--<img class="mui-media-object mui-pull-left" src="img/houqin.png">-->
+                <div class="card-middle1 horbackgreen float-left">
+                    <i class=" mui-icon iconfont icon-laba whitecolor card-png1">
+                        <!--<span id="xiaoNum" class="mui-badge newsgreen bacfff margintop-10px" style="left: 48px;">0</span>-->
+                    </i>
+                </div>
+                <div class="mui-media-body font16 ">
+                    <span class="paddingleft10px">校内通知</span>
+                    <span id="xiao_time" class="backgroundcolor font12 float-right"></span>
+                    <div style="clear: both;"></div>
+                    <div class="font14">
+                        <p id="xiao_content" class='mui-ellipsis paddingleft10px'>暂无通知内容</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </a>
+        </li>
+        <li data-id="2" class="tongzhi mui-table-view-cell mui-media marginbottom-10px bacfff">
+            <a href="javascript:;">
+                <!--<img class="mui-media-object mui-pull-left" src="img/houqin.png">-->
+                <div class="card-middle1 horbackblue float-left">
+                    <i class=" mui-icon iconfont icon-xitong whitecolor card-png1">
+                        <!--<span id="xitongNum" class="mui-badge newsbule bacfff margintop-10px" style="left: 48px;">0</span>-->
+                    </i>
+                </div>
+                <div class="mui-media-body font16 ">
+                    <span class="paddingleft10px">系统通知</span>
+                    <span id="xi_time" class="backgroundcolor font12 float-right"></span>
+                    <div style="clear: both;"></div>
+                    <div class="font14">
+                        <p id="xi_content" class='mui-ellipsis paddingleft10px'>暂无通知内容</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </a>
+        </li>
+        <li data-id="1" class="tongzhi mui-table-view-cell mui-media marginbottom-10px bacfff">
+            <a href="javascript:;">
+                <!--<img class="mui-media-object mui-pull-left" src="img/houqin.png">-->
+                <div class="card-middle1 horbackyellow float-left">
+                    <i class=" mui-icon iconfont icon-jiaoyu-copy whitecolor card-png1">
+                        <!--<span id="jiaoNum" class="mui-badge newsyellow bacfff margintop-10px" style="left: 48px;">0</span>-->
+                    </i>
+                </div>
+                <div class="mui-media-body font16 ">
+                    <span class="paddingleft10px">教育动态</span>
+                    <span id="jiao_time" class="backgroundcolor font12 float-right"></span>
+                    <div style="clear: both;"></div>
+                    <div class="font14">
+                        <p id="jiao_content" class='mui-ellipsis paddingleft10px'>暂无通知内容</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </a>
+        </li>
+        <li data-id="qita" class="tongzhi mui-table-view-cell mui-media marginbottom-10px bacfff">
+            <a href="javascript:;">
+                <!--<img class="mui-media-object mui-pull-left" src="img/houqin.png">-->
+                <div class="card-middle1 horbackground float-left">
+                    <i class=" mui-icon iconfont icon-gengduo whitecolor card-png1">
+                        <!--<span class="mui-badge newsorange bacfff margintop-10px" style="left: 48px;">0</span>-->
+                    </i>
+                </div>
+                <div class="mui-media-body font16 ">
+                    <span class="paddingleft10px">其它通知</span>
+                    <span class="backgroundcolor font12 float-right"><!--昨天12:45--></span>
+                    <div style="clear: both;"></div>
+                    <div class="font14">
+                        <p class='mui-ellipsis paddingleft10px'>暂无通知内容</p>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/biz/notice.js"></script>
+</body>
+</html>
+
+
+
+
+

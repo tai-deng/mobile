@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>详情内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/appIndex.css">
+    <link rel="stylesheet" type="text/css" href="ss/icon/iconfont.css">
+    <style>
+        body{
+            background-color: #fff !important;
+        }
+        .mui-table-view:after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground" >
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">详情内容</h1>
+</header>
+<div class="mui-content">
+    <div></div>
+    <!--<ul class="mui-table-view padding-10">
+        <li class="mui-table-view-cell mui-media mui-text-center font12 graycolor">
+            <div id="title" class="blackfont font18">嘉杰集团2017年度大会隆重举行</div>
+            <div>
+                <span>作者：<span id="author">程程</span></span>&nbsp;&nbsp;
+                <span>来源：<span id="from">嘉杰</span></span>&nbsp;&nbsp;
+                <span>提交时间：<span id="time">2017-03-05</span></span>
+            </div>
+        </li>
+    </ul>-->
+    <ul class="padding-10">
+        <li id="content" class="mui-table-view-cell mui-media mar font14 graycolor" style="line-height: 1.5;">
+
+        </li>
+    </ul>
+</div>
+<script src="js/template.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/URI.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/config.js"></script>
+<!--<script src="js/biz/noticeContent.js"></script>-->
+<script>
+    var con = new Uri(location.href).getQueryParamValue('con');
+    $('#content').append(con);
+
+</script>
+</body>
+</html>
+
+
+
+
+

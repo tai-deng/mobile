@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>支付</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../css/mui.min.css" />
+    <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../js/mui.min.js"></script>
+    <style type="text/css">
+        .top {
+            margin-top: 40px;
+        }
+        .weixin {
+            width: 200px;
+            height: 50px;
+            margin-left: 50px;
+            background: url(../img/weixin.png) no-repeat;
+        }
+        .zhifubao {
+            width: 200px;
+            height: 50px;
+            margin-left: 50px;
+            background: url(../img/weibo.png) no-repeat;
+        }
+        #jine{
+            -webkit-user-select:text;
+            text-align:right;
+            padding:0 1em;
+            border: 0px;
+            border-bottom:1px solid #ECB100;
+            border-radius: 0;
+            font-size:16px;
+            width:30%;
+            outline:none;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<hrader class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">第三方支付</h1>
+</hrader>
+
+<div class="mui-content">
+
+
+    付款金额：<input id="jine" type="number" value="0.01" /> 元
+
+    <div class="top" id="testLogin" >
+        <input type="button" class="weixin" id="weixin1" value="微信支付" />
+        <input type="button" class="zhifubao" id="zhifubao" value="支付宝支付" />
+    </div>
+
+</div>
+<script>
+    var wxChannel = null; // 微信支付
+    var aliChannel = null; // 支付宝支付
+    var channel = null;   //支付通道
+    /*function startWXPAY()
+    {
+        //调用pay()方法 发起支付即可
+        pay();
+        //定义支付通道
+        var channel = null;
+        //获取支付通道
+        getChannels();
+        //获取支付通道的方法
+        function getChannels() {
+            if (window.plus) {
+                plus.payment.getChannels(function(channels) {
+                    for (var i = 0; i < channels.length; i++) {
+                        if (channels[i].id == "wxpay") {
+                            channel = channels[i];
+                            plus.ui.toast("等待微信支付中");
+                        }
+                    }
+                }, function(e) {
+                    plus.ui.toast("获取支付通道失败!");
+                    //console.log("获取支付通道失败!");
+                });
+            }else{
+                mui.toast('需手机APP才能支付,不是手机');
+            }
+        }
+        //发起微信支付请求的方法
+        function pay() {
+            //获取微信支付参数的url
+            var basic_url ='http://www.51hall.com/wxDemo/wx/toAppPay?orderNo=123456&amount=0.01';
+            mui.ajax('http://www.51hall.com/wxDemo/wx/toAppPay?orderNo=123456&amount=0.01', {
+                data: '',
+                dataType: 'json', //服务器返回json格式数据
+                type: 'post', //HTTP请求类型
+                timeout: 10000, //超时时间设置为10秒；
+                success: ajax_success_callback,
+                error: ajax_error_callback
+            });
+        }
+        //获取微信支付参数成功的回调函数
+        function ajax_success_callback(resObj) {
+            if (window.plus) {
+                var res_str = JSON.stringify(resObj);
+                //用返回参数 发起微信支付请求
+                alert('1212'+res_str);
+                plus.payment.request(channel, res_str, wxpay_success, wxpay_error);
+            }else{
+                mui.toast('需手机APP才能支付，ajax');
+            }
+        }
+        //获取微信支付参数失败的回调函数
+        function ajax_error_callback(e) {
+            alert("ajax获取参数失败");
+        }
+        //微信支付成功回调
+        function wxpay_success(result) {
+            var timestamp=new Date().getTime();
+//            window.location.href = location.origin+"/order/payFinish/"+${order.id}+"?timestamp="+timestamp;
+        }
+        //微信支付失败回调
+        function wxpay_error(error) {
+            plus.ui.alert("支付失败!");
+        }
+    }*/
+    document.getElementById('weixin1').addEventListener('tap',function() {
+        console.log("微信");
+//        startWXPAY();
+        pay('wxpay');
+    });
+    document.getElementById('zhifubao').addEventListener('tap',function() {
+        console.log("zhifubao");
+        pay('alipay');
+    });
+
+    var ALIPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/alipay.php?total=';
+    var WXPAYSERVER='http://www.51hall.cn/api/Broadband/toPay?amount=0.01&&userId=000&&userId=000&&id=00&&siteCode=00&&orderId=00';
+
+    // 2. 发起支付请求
+    function pay(id){
+        // 从服务器请求支付订单
+        var PAYSERVER='';
+        if(id=='alipay'){
+            PAYSERVER=ALIPAYSERVER;
+            channel = aliChannel;
+        }else if(id=='wxpay'){
+            PAYSERVER=WXPAYSERVER;
+            channel = wxChannel;
+        }else{
+            plus.nativeUI.alert("不支持此支付通道！",null,"付款金额");
+            return;
+        }
+        var xhr=new XMLHttpRequest();
+        var amount = document.getElementById('jine').value;
+
+        xhr.onreadystatechange=function(){
+            switch(xhr.readyState){
+                case 4:
+                        alert(xhr.status);
+                    if(xhr.status==200){
+                        plus.payment.request(channel,xhr.responseText,function(result){
+                            plus.nativeUI.alert("支付成功！",function(){
+                                back();
+                            });
+                        },function(error){
+                            plus.nativeUI.alert("支付失败：" + error.code+ JSON.stringify(error));
+                        });
+                    }else{
+                        alert("获取订单信息失败！");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        xhr.open('GET',PAYSERVER+amount);
+        xhr.send();
+    }
+</script>
+<script type="text/javascript" src="js/immersed.js" ></script>
+</body>
+</html>

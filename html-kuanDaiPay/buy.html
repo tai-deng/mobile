@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立即点菜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/buy.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .mui-table-view:before {
+            height: 0px;
+        }
+        .mui-table-view:after {
+            height: 0px;
+        }
+        .mui-table-view-cell:after {
+            height: 0px;
+        }
+        .mui-grid-view.mui-grid-9 .mui-table-view-cell > a:not(.mui-btn) {
+            margin: 0;
+            padding: 20px 0;
+        }
+        .mui-input-row label {
+            padding: 11px 10px;
+        }
+        .mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
+            width: 60%;
+        }
+        .mui-popover.mui-popover-action {
+            bottom: 50px;
+        }
+        .mui-popover .mui-table-view .mui-table-view-cell:first-child, .mui-popover .mui-table-view .mui-table-view-cell:first-child > a:not(.mui-btn) {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav bacbule " >
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left fontWhite"></a>
+    <h1 class="mui-title fontWhite font16">立即点菜</h1>
+</header>
+<div class="mui-content">
+    <ul class="padding10px">
+        <ul class="width333 bacfff padding10px font14 floatleft marginbottom-10px fly" style="margin-right: 2%;">
+            <li>
+                <img src="../img/public.png" style="width: 90%;"/>
+            </li>
+            <li class="">胖哥槟榔</li>
+            <li class="floatleft">￥5</li>
+            <li class="floatright">
+            <li class="floatright">
+                <span data-id="胖哥槟榔1" data-flag="dan1" data-price="15.0"  class="listStyle1 fontddd iconfont icon-jian display-none font10 jian"></span>
+                <span id="dan1" class="num display-none listStyle1 mui-text-center">0</span>
+                <span  data-id="胖哥槟榔1" data-style="listStyle1" data-flag="dan1" data-price="15.0"  class="iconfont icon-tianjia font10 maincolor tianjia"></span>
+            </li>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+        <ul class="width333 bacfff padding10px font14 floatleft marginbottom-10px fly" style="margin-right: 2%;">
+            <li>
+                <img src="../img/public.png" style="width: 90%;"/>
+            </li>
+            <li class="">胖哥槟榔</li>
+            <li class="floatleft">￥5</li>
+            <li class="floatright">
+                <li class="floatright">
+                    <span data-id="胖哥槟榔2" data-flag="dan2" data-price="15.0"  class="listStyle2 fontddd iconfont icon-jian display-none font10 jian"></span>
+                    <span id="dan2" class="num display-none listStyle2 mui-text-center">0</span>
+                    <span  data-id="胖哥槟榔2" data-style="listStyle2" data-flag="dan2" data-price="15.0"  class="iconfont icon-tianjia font10 maincolor tianjia"></span>
+                </li>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+        <ul class="width333 bacfff padding10px font14 floatleft marginbottom-10px">
+            <li>
+                <img src="../img/public.png" style="width: 90%;"/>
+            </li>
+            <li class="">胖哥槟榔</li>
+            <li class="floatleft">￥5</li>
+            <li class="floatright">
+                <span data-id="胖哥槟榔3" data-flag="dan3" data-price="15.0"  class="listStyle3 fontddd iconfont icon-jian display-none font10 jian"></span>
+                <span id="dan3" class="num display-none listStyle3 mui-text-center">0</span>
+                <span  data-id="胖哥槟榔3" data-style="listStyle3" data-flag="dan3" data-price="15.0"  class="iconfont icon-tianjia font10 maincolor tianjia"></span>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+        <ul class="width333 bacfff padding10px font14 floatleft marginbottom-10px">
+            <li>
+                <img src="../img/public.png" style="width: 90%;"/>
+            </li>
+            <li class="">胖哥槟榔</li>
+            <li class="floatleft">￥5</li>
+            <li class="floatright">
+                <span data-id="胖哥槟榔4" data-flag="dan4" data-price="15.0"  class="listStyle4 fontddd iconfont icon-jian display-none font10 jian"></span>
+                <span id="dan4" class="num display-none listStyle4 mui-text-center">0</span>
+                <span  data-id="胖哥槟榔4" data-style="listStyle4" data-flag="dan4" data-price="15.0"  class="iconfont icon-tianjia font10 maincolor tianjia"></span>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+        <div style="clear: both;"></div>
+        <!--<ul class="mui-table-view margin-top10px radius3">
+            <li class="mui-table-view-cell mui-media padding15px">
+                <a href="javascript:;">
+                    <img class="mui-pull-left" src="img/img.png" width="30%">
+                    <div class="mui-media-body padding-left10px">
+                        农家红烧肉1
+                        <p class='mui-ellipsis margin-top10px font12'>猫叫特制红烧肉，味美，鲜嫩，可口</p>
+                        <p class='mui-ellipsis font12'>月销 10  赞 10</p>
+                        <p class='mui-ellipsis fontred font14'><b>￥20.0</b></p>
+                        <span data-id="农家红烧肉1" data-flag="cai2" data-price="20.0" class="listStyle1 display-none iconfont icon-jian font20 fontddd jian"></span>
+                        <span id="cai2" class="num display-none listStyle1 mui-text-center">1</span>
+                        <span data-id="农家红烧肉1" data-style="listStyle1" data-flag="cai2" data-price="20.0" class="iconfont icon-tianjia font20 fontYellow tianjia"></span>
+                    </div>
+                </a>
+            </li>
+        </ul>-->
+    </ul>
+    <ul class="linehei30px bacaaa bottom padding10px font12">
+        <ul id='shopTips'>
+            <li class="floatleft">需配送费￥5元 &nbsp;|&nbsp; 支持到店自取</li>
+            <li class="floatright">￥15元起送</li>
+        </ul>
+        <ul id="shopCar" class="display-none">
+            <li id="shopCarDetail" class="bacyellow radiusHalf floatleft mui-text-center" style="width: 1rem;height: 1rem;position: fixed;bottom: 0px;">
+                <span class="iconfont icon-gouwuche1 fontWhite" style="font-size: 0.8rem; position: absolute;bottom: 0.2rem;left: 0.1rem;"></span>
+            </li>
+            <li class="floatleft fontWhite font14" style="margin-left: 1rem;">￥64.0</li>
+            <li class="floatright width25 bacyellow padding10px mui-text-center fontWhite" style="position: absolute;right: 0px;height: 50px;bottom: 0px;">去结算</li>
+        </ul>
+    </ul>
+    <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+        <!-- 可选择菜单 -->
+        <ul class="mui-table-view actionsheet">
+            <li class="mui-table-view-cell font12 fontaaa bacddd radiusNone">
+                <span class="floatleft">购物车</span>
+                <span id="clearCar" class="floatright">清空购物车</span>
+            </li>
+            <li class=" mui-table-view-cell line1Container">
+                <ul class="font12">
+                    <li class="floatleft fontaaa width35 mui-text-left mui-ellipsis">毛家红烧肉毛家红烧肉毛家红烧肉毛家红烧肉</li>
+                    <li class="floatleft font666">￥20.0</li>
+                    <li class="floatright width35 mui-text-right">
+                        <span data-id="line1" class="remove iconfont icon-jian fontddd font16"></span>
+                        <span id="line1" class="padding-0-10px font666">12</span>
+                        <span data-id="line1"  class="add iconfont icon-tianjia fontYellow font16"></span>
+                    </li>
+                </ul>
+            </li>
+            <li class=" mui-table-view-cell line2Container">
+                <ul class="font12">
+                    <li class="floatleft fontaaa width35 mui-text-left mui-ellipsis">毛家红烧肉毛家红烧肉毛家红烧肉毛家红烧肉</li>
+                    <li class="floatleft font666">￥20.0</li>
+                    <li class="floatright width35 mui-text-right">
+                        <span data-id="line2" class="remove iconfont icon-jian fontddd font16"></span>
+                        <span id="line2" class="padding-0-10px font666">12</span>
+                        <span data-id="line2" class="add iconfont icon-tianjia fontYellow font16"></span>
+                    </li>
+                </ul>
+            </li>
+            <!--<li class="mui-table-view-cell">
+                <ul class="font12">
+                    <li class="floatleft fontaaa width35 mui-text-left mui-ellipsis">餐盒费</li>
+                    <li class="floatleft font666">￥4.0</li>
+                </ul>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/jquery.fly.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/config.js"></script>
+<script>
+    $(function() {
+
+
+    });
+    //点击添加
+    var cai,price;
+    var content = new Array();
+//    mui(".mui-content").on('tap','.tianjia',function(){
+    $(".fly").click(function(event){
+        var tag = $(this).data('flag');
+        var style = $(this).data('style');
+        var num = $('#'+tag).text();
+        $('.'+style).removeClass('display-none');
+        $('#'+tag).text(parseInt(num)+1);
+        cai = $(this).data('id');
+        price = $(this).data('price');
+        //如果点击的是同样的菜品
+        if(content.length != 0){
+            for(var i=0; i<content.length;i++){
+                if(content[i].name === cai){
+                    content[i].num = parseInt(num)+1;
+                }else{
+                    //如果数组里面没有与之相同的产品则在最后一次循环的时候在数组添加新数据
+                    if(i === content.length-1){
+                        content.push({
+                            name:cai,
+                            money:price,
+                            num:parseInt(num)+1
+                        });
+                    }
+                }
+            }
+        }else{
+            content.push({
+                name:cai,
+                money:price,
+                num:parseInt(num)+1
+            });
+        }
+        //如果购物车是影藏的就显示购物车
+        if($('#shopCar').hasClass('display-none')){
+            $('#shopCar').removeClass('display-none');
+            $('#shopTips').addClass('display-none');
+        }
+//        alert(JSON.stringify(content));
+        //添加动画
+        var offset = $("#shopCarDetail").offset();
+        var img = '../img/banner.png';
+        var flyer = $('<img class="u-flyer" src="'+img+'">');
+        flyer.fly({
+            start: {
+                left: event.pageX, //开始位置（必填）#fly元素会被设置成position: fixed
+                top: event.pageY //开始位置（必填）
+            },
+            end: {
+                left: offset.left+10, //结束位置（必填）
+                top: offset.top+10, //结束位置（必填）
+                width: 0, //结束时宽度
+                height: 0 //结束时高度
+            },
+            onEnd: function(){ //结束回调
+                this.destory(); //移除dom
+            }
+        });
+    });
+    //点击购物车从下往上弹出购物车详情
+    mui(".mui-content").on('tap','#shopCarDetail',function(){
+        mui('#sheet1').popover('toggle');
+    });
+    //在进行加减操作的时候，必须要给同一行的加减加上data-id属性，并且值跟数字的tag的id保持一致，按照上面HTML的格式
+    //购物车点击添加份数
+    mui(".mui-content").on('tap','.add',function(){
+        var tag = $(this).data('id');
+        var num = $('#'+tag).text();
+        $('#'+tag).text(parseInt(num)+1);
+    });
+    //购物车点击减少份数
+    mui(".mui-content").on('tap','.remove',function(){
+        var tag = $(this).data('id');
+        var num = $('#'+tag).text();
+        //如果份数减为0，则删除该条数据
+        if(num == 1){
+            $('.'+tag+'Container').remove();
+        }else{
+            $('#'+tag).text(parseInt(num)-1);
+        }
+    });
+    //清空购物车
+    mui(".mui-content").on('tap','#clearCar',function(){
+        //注需给所有的菜单行加上content的类属性，按照上面的HTML格式来
+        $('.content').remove();
+    });
+  /*  //菜单点击添加
+    mui(".mui-content").on('tap','.tianjia',function(){
+    });*/
+    //菜单点击减少
+    mui(".mui-content").on('tap','.jian',function(){
+        var tag = $(this).data('flag');
+        var num = $('#'+tag).text();
+        $('#'+tag).text(parseInt(num)-1);
+        if(num == 1){
+            $(this).addClass('display-none');
+            $('#'+tag).addClass('display-none');
+        }
+    });
+</script>
+</body>
+</html>

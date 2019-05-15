@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <!--<link rel="stylesheet" href="../css/appIndex.css">-->
+    <link rel="stylesheet" href="../css/indexNew.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .mui-popup-buttons {
+            height: 60px;
+        }
+        .mui-popup-button {
+            line-height: 60px;
+            height: 60px;
+        }
+        .mui-input-row select {
+            /* font-size: 17px; */
+            height: 37px;
+            padding: 0 10px !important;
+            background: rgba(255, 255, 255, .95) !important;
+        }
+        .mui-popup-inner:after {
+            background-color: #fff !important;
+        }
+        .mui-popup-inner {
+            background-color: #fff !important;
+        }
+        .mui-popup-button {
+            background-color: #fff !important;
+        }
+        .mui-input-row label {
+            padding: 11px 10px;
+        }
+        .mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
+            width: 70%;
+        }
+        .mui-input-row label {
+            width: 30%;
+        }
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {
+             /* iphone6 plus竖屏*/
+            .mui-popup {
+                width: 350px;
+            }
+        }
+        .down-pull {
+            position: absolute;
+            top: 0;
+            line-height: 37px;
+            right: 10px;
+        }
+        .margin-top10 {
+            margin-top: 10px;
+        }
+        .title {
+            position: absolute;
+            top: 15px;
+            left: 43%;
+        }
+
+        .chongzhifuwu-cont {
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            width: 80%;
+            overflow: hidden;
+        }
+        .chongzhifuwu-item {
+            border-bottom: 1px solid #eee;
+            color: #888;
+        }
+        .chongzhijf {
+            top: 0;
+            left: 0;
+            position: fixed;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        .chongzhifuwu-item {
+            clear: left;
+            overflow: hidden;
+            position: relative;
+        }
+        .chongzhifuwu-item select,.chongzhifuwu-item input{
+            margin-bottom: 0;
+        }
+        #qitataocanxufei-deatil .tip{
+            padding-left: 10px;
+        }
+
+        .butns:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        .butns {
+            zoom: 1;
+        }
+        .butns .butn{
+            width: 35%;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--<header class="mui-bar mui-bar-nav horbackground">
+    <h1 class="mui-title whitecolor font18">首页111</h1>
+</header>-->
+<div class="mui-content">
+    <div class="backgroundwhite" style="position:relative;">
+        <img src="../img/bj-index.png" width="100%;"/>
+        <div class="title mui-media maincolor font18 mui-text-center">智校乐</div>
+        <div class="school backgroundwhite padding-left-right10px font12 gray-8color display-none">
+
+        </div>
+        <ul class="container transform45 mui-text-center font14 gray-8color">
+            <li class="yuan backgroundwhite float-left lineHeight"><div class="loadadd textContainer">剩余金额<div class="jine maincolor display-none">0.00元</div></div></li>
+            <li class="yuan2 backgroundwhite float-right"><div class="textContainer shuText">缴费历史</div></li>
+            <div style="clear: both;"></div>
+            <li class="yuan3 backgroundwhite float-right lineHeight" style="margin-top: 3px;"><div class="textContainer">宽带缴费</div></li>
+            <li class="yuan4 backgroundwhite float-left" style="margin-top: 3px;"><div class="textContainer shuText">资费说明</div></li>
+            <div style="clear: both;"></div>
+            <li class="horbackground centerYuan whitecolor" style="padding-top: 13%;"><div class="textContainer leftMove">Hi<div id="userName" class="mui-ellipsis font12"></div></div></li>
+        </ul>
+        <div class="taocan backgroundwhite width100 padding-top-bottom15px mui-text-center dqTaocan font12 gray-8color display-none">
+            当前套餐：<span id="taocanName"></span> 到期日：<span id="taocanTime"></span>
+        </div>
+    </div>
+    <ul id="procdefCLass" class="mui-table-view mui-grid-view mui-grid-9 border-none" >
+        <li id="huafei" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+            <a style="padding-top: 0px;">
+                <div class="card-middle horbackblue">
+                    <i class=" mui-icon iconfont icon-chongzhi1 whitecolor card-png"></i>
+                    </div>
+                <div class="mui-media-body font12">充值服务</div>
+            </a>
+        </li>
+        <li id="xiyifu" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+            <a>
+                <div class="card-middle horbackyellow">
+                    <i class=" mui-icon iconfont icon-baoxiu1 whitecolor card-png"></i>
+                </div>
+                <div class="mui-media-body font12">报修服务</div>
+            </a>
+        </li>
+        <li id="reshui" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px" onclick="jsCallNative()">
+            <a>
+                <div class="card-middle horbackgreen">
+                    <i class=" mui-icon iconfont icon-reshui whitecolor card-png"></i>
+                </div>
+                <div class="mui-media-body font12">生活服务</div>
+            </a>
+        </li>
+        <li id="huanTaocan" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+            <a style="padding-top: 0px;">
+                <div class="card-middle horbackground">
+                    <i class=" mui-icon iconfont icon-kuandai whitecolor card-png"></i>
+                </div>
+                <div class="mui-media-body font12">宽带服务</div>
+            </a>
+        </li>
+    </ul>
+    <ul class="mui-table-view margintop-10px">
+        <li class="mui-table-view-cell mui-media maincolor font18 mui-text-center">
+            快速充值
+        </li>
+        <!--<li class="mui-table-view-cell mui-media">-->
+            <input id="stu_id" class="mui-table-view-cell mui-media border-none font14 gray-8color" readonly style="margin: 0px;" type="text" placeholder="输入学号"/>
+        <!--</li>-->
+        <li class="mui-media maincolor font18 mui-text-center padding-10">
+            <!--快速充值-->
+            <button id="hurryBuy" class="mui-btn mui-btn-block  whitecolor horbackground ridus30px font18" style="margin: 0px;">宽带快速续费</button>
+        </li>
+    </ul>
+
+    <div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action">
+        <!-- 可选择菜单 -->
+        <ul class="actionsheet bacfff font14">
+            <li class="bachui maincolor mui-text-center padding-10">付款详情</li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">当前套餐</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyTaocan" class="oa-contact-position">暂无</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--<li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">购买套餐类型</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyType" class="oa-contact-position">有线——期卡（20M）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>-->
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">缴费时长</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyTime" class="oa-contact-position">一周期</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">缴费对象</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyName" class="oa-contact-position"> 学号：</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">付款方式</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyChannel" class="oa-contact-position">微信</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="mui-table-view-cell">
+                <div class="mui-slider-cell">
+                    <div class="oa-contact-cell mui-table">
+                        <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                            <span class="graycolor">支付金额</span>
+                        </div>
+                        <div class="oa-contact-content mui-table-cell mui-text-right">
+                            <div class="mui-clearfix">
+                                <span id="buyPrice" class="oa-contact-position maincolor"></span><span>元</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="padding-left-right10px">
+                <button id="submit" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font16 btn">
+                    确认支付
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <div id="chongzhifuwuon" class="chongzhijf display-none">
+        <div class="chongzhifuwu-cont bacfff font14 ridus5">
+            <div class="chongzhifuwu-title padding-10 whitecolor horbackground">请选择充值类型
+                <div id='chongzhifuwuoff' class="mui-icon iconfont icon-cha2 colorwhite font12 float-right"></div>
+            </div>
+
+            <div id="chongzhicontent">
+                <div id="kuandaichongzhi" class="chongzhifuwu-item padding-10">宽带充值</div>
+                <div id="shenghuochongzhi" class="chongzhifuwu-item padding-10">生活充值</div>
+                <!-- <div id="huafeichongzhi" class="chongzhifuwu-item padding-10">话费充值</div> -->
+            </div>
+
+            <div id="kuandaichongzhi-d" class="display-none">
+                <div id="dangqiantaocanxufei" class="chongzhifuwu-item padding-10">当前账户续费
+                    <div class="mui-icon iconfont icon-duihao font12 float-right maincolor display-none"></div>
+                </div>
+                <div id="qitataocanxufei" class="chongzhifuwu-item padding-10">其它账户续费
+                    <div class="mui-icon iconfont icon-duihao font12 float-right maincolor display-none"></div>
+                </div>
+                <div id="qitataocanxufei-deatil" class="display-none">
+                    <div class="chongzhifuwu-item">
+                        <select name="select" id="selectSc" class="">
+                            <option value="0" class="graycolor">请选择学校</option>
+                        </select>
+                        <span class="iconfont icon-xiala down-pull"></span>
+                    </div>
+
+                    <div class="chongzhifuwu-item">
+                        <input id="studentId" class=" lineheight-25px height-auto grayborder padding-left-right10px" style="font-size: 14px;" type="number" placeholder="请输入需要缴费的学号/身份证号码">
+                    </div>
+                    <div id="available" class="maincolor font10 tip display-none">
+                        <span class="iconfont icon-gth font8"></span>
+                        此账号还未开通宽带业务
+                    </div>
+                    <div class="font12 padding-10 butns whitecolor mui-clearfix">
+                        <div id='btnup' class="butn horbackground mui-text-center float-left">上一步</div>
+                        <div id='btndown' class="butn horbackground mui-text-center float-right">下一步</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/config.js"></script>
+
+<script src="../js/template.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<!--<script src="../js/new/indexNew.js"></script>-->
+<script>
+    var id = {
+        btn:'waterClick',
+        user:localStorage.getItem('US_NAME')
+    }
+    console.log('-----',id)
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+    function jsCallNative(par){
+        // if(mui.os.ios){
+        //     setupWebViewJavascriptBridge(function(bridge) {
+        //     bridge.callHandler('jsCallNative', id, function responseCallback(responseData) {
+        //             mui.alert(responseData)
+        //         })
+        //     })
+        //     window.webkit.messageHandlers.senderModel.postMessage(id);
+        // }
+        // if(mui.os.android){
+        //     window.MyApp.openSDK('ok!!!!');
+        // }
+        // if(mui.os.wechat){
+            mui.alert('请在小程序或app上使用，公众号不支持本服务！','提示','确定',null,'div');
+        // }
+    }
+document.write('<script src="../js/new/indexNew.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>

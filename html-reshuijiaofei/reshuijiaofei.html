@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>手机充值</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <!--<link rel="stylesheet" href="../css/setSecurityCode.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">生活充值</h1>
+</header>
+<div class="mui-content">
+    <div class="padding-top10"></div>
+    <div class="bacfff border-eee-top-bottom">
+        <!--<div class="padding-10"></div>-->
+        <input id="phoneNum" class="border-none margin-none font14 float-left width80" type="tel" maxlength="11" placeholder="请输入趣智校园账户（手机号）"/>
+        <span id="lianxiren" class="iconfont icon-zhanghao2 maincolor font18 float-right padding-10"></span>
+        <div style="clear: both;"></div>
+        <div id="tips" class="gray-8color padding-left-right10px font12 float-left"></div><div id="type" class="gray-8color paddingleft10px font12"></div>
+        <div style="clear: both;"></div>
+        <!--<hr style="border:0;background-color:#dddddd;height:1px;"/>-->
+    </div>
+    <div id="jiaofeiRecord" class="padding-left-right10px padding-top10px">
+        <span class="line25 font14 float-left ">充值金额</span>
+        <span class="maincolor float-right">
+            <span class="iconfont icon-jian1"></span><span class="font14">充值历史</span>
+        </span>
+        
+    </div> 
+    <div style="clear: both;"></div>
+    <ul class="padding-10">
+        <li id="content" class="mui-text-center">
+            <!--<button data-id='10' class="buy ridus5 width30 margin-right5per margintop-5px grayborder1 gray-8color padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">10元</div>
+                <div class="font10 line20 mui-ellipsis">售价9.9元</div>
+            </button>
+            <button data-id='20' class="buy ridus5 width30 margin-right5per margintop-5px grayborder1 gray-8color padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">20元</div>
+                <div class="font10 line20 mui-ellipsis">售价19.5元</div>
+            </button>
+            <button data-id='30' class="buy ridus5 width30 margintop-5px grayborder1 gray-8color padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">30元</div>
+                <div class="font10 line20 mui-ellipsis">售价29.5元</div>
+            </button>
+            <button data-id='50' class="buy ridus5 width30 margin-right5per margintop-5px grayborder1 gray-8color  padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">50元</div>
+                <div class="font10 line20 mui-ellipsis">售价49.9元</div>
+            </button>
+            <button data-id='100' class="buy ridus5 width30 margin-right5per margintop-5px grayborder1 gray-8color padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">100元</div>
+                <div class="font10 line20 mui-ellipsis">售价99.5元</div>
+            </button>
+            <button data-id='200' class="buy ridus5 width30 grayborder1 gray-8color margintop-5px padding-top-bottom5px mui-text-center float-left">
+                <div class="font18 line20">200元</div>
+                <div class="font10 line20 mui-ellipsis">售价199.5元</div>
+            </button>-->
+        </li>
+    </ul>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/reshuijiaofei/reshuipay.js"></script>
+<!--<script src='../js/kuanDai/schoolWifiPay.js'></script>-->
+<script>
+    document.write('<script src="../js/reshuijiaofei/reshuijiaofei.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>

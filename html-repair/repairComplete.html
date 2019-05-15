@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>完成维修</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <link rel="stylesheet" href="../css/repair.css">
+    <style>
+        .mui-input-row label {
+            line-height: 1.1;
+            float: left;
+            padding: 10px 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">我要报修</h1>
+</header>
+<div class="mui-content bacfff mui-text-center">
+    <div style="margin: 30% auto;">
+        <span class="mui-icon iconfont icon-queding" style="color: #00a918;margin-right: 3px;font-size: 0.8rem"></span>
+        <div class="margintop-10px">完成维修!</div>
+    </div>
+    <div class="padding-10">
+        <button id="lookDetail" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+            查看订单列表
+        </button>
+    </div>
+    <!--<div class="padding-10 ">
+        <button type="button" class="mui-btn btnbac ridus5 mui-btn-outlined maincolor font18 btn1 orangeborder">
+            下一条
+        </button>
+    </div>-->
+</div>
+
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<!--<script src="../js/biz/myRepair.js"></script>-->
+<script>
+    var height = window.screen.availHeight;
+    $('.mui-content').height(height-45);
+    $('#lookDetail').on('click',function(){
+        var personType,location;
+        $.each([decryptByDES(localStorage.getItem('juese'),keyValue)],function(index,value){
+            personType = value;
+        });
+
+        if(personType == '维修人员角色'){
+            location = 'repairRecordWorker.html';
+        }else{
+            location = 'repairRecord.html';
+        }
+        
+        window.location.href = location;
+    })
+</script>
+</body>
+</html>

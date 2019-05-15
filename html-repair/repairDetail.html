@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>办理详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+
+    <link rel="stylesheet" href="../css/mui.picker.css">
+    <link rel="stylesheet" href="../css/mui.popoper.css">
+
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <link rel="stylesheet" href="../css/repair.css">
+    <style>
+        .mui-input-row label {
+            line-height: 1.1;
+            float: left;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+<body class="bacfff">
+<header class="mui-bar mui-bar-nav horbackground" >
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">我要报修</h1>
+</header>
+<div class="mui-content bacfff content" style="padding-bottom: 0px;">
+    <form class="mui-input-group font14">
+        <div class="mui-input-row height-auto padding-10">
+            <div class="bacddd ridus5 prograss">
+                <div class="horbackground ridus5 " id="prograss" style="width: 0%;height: 100%;"></div>
+            </div>
+            <div class="font12 graycolor padding-5">
+                <span id="deal_time" class="float-left">处理时间：2017-05-10 10：44</span>
+                <span id="state" class="float-right maincolor">已关闭</span>
+            </div>
+        </div>
+        <div class="mui-input-row height-auto">
+            <label class="width40 lineheight-25px">
+                <span class="mui-icon iconfont icon-bianhao mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">订单编号:</span>
+            </label>
+            <input id="order_id" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <div id="chuliren" class="display-none mui-input-row height-auto">
+            <label class="width40 lineheight-25px">
+                <span class="mui-icon iconfont icon-tuixue mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">处理人:</span>
+            </label>
+            <input id="deal_name" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <!-- <div id="chuliyijian" class="mui-input-row height-auto">
+            <label class="width40 lineheight-25px">
+                <span class="mui-icon iconfont icon-tiwen mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">维修留言:</span>
+            </label>
+            <input id="deal_message" class="width60 lineheight-25px height-auto maincolor" readonly type="text" placeholder="" value="">
+        </div> -->
+        <!-- <div id="zhuangtaishuoming" class="mui-input-row height-auto">
+            <label class="width40 lineheight-25px">
+                <span class="mui-icon iconfont icon-gth mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">状态说明:</span>
+            </label>
+            <input id="order_status" class="width60 lineheight-25px height-auto maincolor" readonly type="text" placeholder="" value="">
+        </div> -->
+        <!-- <div id="baoxiuliuyan" class="display-none mui-input-row height-auto">
+            <label class="width40 lineheight-25px">
+                <span class="mui-icon iconfont icon-tiwen mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">报修留言:</span>
+            </label>
+            <input id="message" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div> -->
+        <div class="mui-input-row height-auto">
+            <label class=" width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-quyu mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span><span class="font14">报修区域:</span>
+            </label>
+            <input id="order_place" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <!--<div class="mui-input-row height-auto">
+            <label class=" width40  lineheight-25px">
+                &lt;!&ndash;<span class="mui-icon iconfont icon-baoxiu mui-active" style="/*color: #008de6;*/margin-right: 3px;"></span><span class="font14">报修项目:</span>&ndash;&gt;
+            </label>
+            <input class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="一号教学楼">
+        </div>-->
+        <div class="mui-input-row height-auto">
+            <label class=" width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-baoxiu mui-active" style="/*color: #008de6;*/margin-right: 3px;"></span><span class="font14">报修项目:</span></label>
+            <input id="order_project" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-dizhi mui-active" style="/*color: #00a918;*/margin-right: 3px;"></span><span class="">详细地址:</span>
+            </label>
+            <input id="address" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-description mui-active" style="/*color: #ff5800;*/margin-right: 3px;"></span>详细描述:
+            </label>
+            <textarea id="description" class="width60 lineheight-25px height-auto mui-text-left" readonlyrows="3" placeholder=""></textarea>
+        </div>
+        <!--照片-->
+        <div class="mui-input-row height-auto padding-10 display-none picture" >
+            <div class="z_photo" >
+                <div class="z_addImg ridus5">
+                    <img class="imgTest display-none" id="img1" src="">
+                </div>
+                <div class="z_addImg ridus5">
+                    <img class="imgTest display-none" id="img2" src="">
+                </div>
+                <div class="z_addImg ridus5">
+                    <img class="imgTest display-none" id="img3" src="">
+                </div>
+                <div class="z_addImg ridus5">
+                    <img class="imgTest display-none" id="img4" src="">
+                </div>
+                <div class="z_addImg ridus5">
+                    <img class="imgTest display-none" id="img5" src="">
+                </div>
+            </div>
+        </div>
+        <!-- <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px ">
+                <span class="mui-icon iconfont icon-yuyue mui-active" style="/*color: #00a918;*/margin-right: 3px;"></span><span class="font14">预约时间:</span>
+            </label>
+            <input id="repair_date" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div> -->
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-ren mui-active" style="/*color: #008de6;*/margin-right: 3px;"></span>
+                <span id='user_name'></span>
+            </label>
+            <input id="repair_people" class="width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-lianxidianhua mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span>联系电话:
+            </label>
+            <a href="#" id='repair_phone_call'>
+                <input id="repair_phone" class="width60 lineheight-25px height-auto bluecolor" readonly type="text" placeholder="" value="">
+            </a>
+        </div>
+        <div id="liuyan" class="display-none mui-input-row height-auto padding-10" >
+            <textarea class="lineheight-25px height-auto ridus5" style="border: 1px solid #dddddd;" id="repairRemark" rows="3" placeholder="您可以给维修人员评论（限1次）"></textarea>
+        </div>
+        <input id="message" class="display-none width60 lineheight-25px height-auto" readonly type="text" placeholder="" value="">
+        <div id="fault_type" class="mui-input-row height-auto display-none">
+            <label class="width40 lineheight-25px">故障类型:</label>
+            <div id='fault_type_value' style="padding:10px;line-height: 25px;display: inline-block;">请选择故障类型</div>
+            <!-- <span class="wdith20 iconfont icon-xiala"></span> -->
+        </div>
+        <input id="fault_other" class="display-none width100 lineheight-25px height-auto" type="text" placeholder="" value="">
+    </form>
+
+</div>
+            
+<div id="bottom" class="display-none padding-10 fixed-bottom">
+    <button id="leaveNote" type="button" di class="display-none mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        我要留言
+    </button>
+    <button id="receivOrder" type="button" class="display-none mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        接单处理
+    </button>
+    <button id="completeOrder" type="button" class="display-none mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        订单确认
+    </button>
+    <button id="back" type="button" class="display-none mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        返回上一页
+    </button>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../js/mui.picker.min.js"></script>
+<script src="../js/biz/repairDetail.js"></script>
+<!--<script src="../js/biz/myRepair.js"></script>-->
+<script>
+    $.fn.ImgZoomIn = function () {
+        bgstr = '<div id="ImgZoomInBG" style=" background:#000000; filter:Alpha(Opacity=70); opacity:0.7; position:fixed; left:0; top:0; z-index:10000; width:100%; height:100%; display:none;">' +
+                '<iframe src="about:blank" frameborder="5px" scrolling="yes" style="width:100%; height:100%;"></iframe>' +
+                '</div>';
+        imgstr = '<img id="ImgZoomInImage" src="' + $(this).attr('src')+'" onclick=$(\'#ImgZoomInImage\').hide();$(\'#ImgZoomInBG\').hide(); style="cursor:pointer; display:none; position:absolute; z-index:10001; width:100%;height:100%;" />';
+        if ($('#ImgZoomInBG').length < 1) {
+            $('body').append(bgstr);
+        }
+        if ($('#ImgZoomInImage').length < 1) {
+            $('body').append(imgstr);
+        }
+        else {
+            $('#ImgZoomInImage').attr('src', $(this).attr('src'));
+        }
+        $('#ImgZoomInImage').css('left', $(window).scrollLeft() + ($(window).width() - $('#ImgZoomInImage').width()) / 2);
+        $('#ImgZoomInImage').css('top', $(window).scrollTop() + ($(window).height() - $('#ImgZoomInImage').height()) / 2);
+        $('#ImgZoomInBG').show();
+        $('#ImgZoomInImage').show();
+    };
+    $(document).ready(function () {
+        $(".imgTest").bind("click", function () {
+            $(this).ImgZoomIn();
+        });
+    });
+</script>
+</body>
+</html>

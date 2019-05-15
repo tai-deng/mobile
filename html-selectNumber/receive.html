@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立即领取</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .receive{position: relative}
+        .receive_box{position: absolute;top: 10rem;width: 90%;height:1rem;left: 0;right: 0;margin: 0 auto}
+        .receive_box button {background: none;width: 100%;height: 100%}
+    </style>
+</head>
+<body>
+<div class="receive">
+    <img src="../img/receive.jpg" alt="" class="width100" id="receiveImg"/>
+    <div class="receive_box">
+        <button id="receive" type="button"></button>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/config.js"></script>
+<script>
+    document.write('<script src="../js/selectNumber/receive.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>

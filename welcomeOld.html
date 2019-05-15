@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>欢迎页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+    <style>
+        html{height:100%}
+        .mui-collapse-content{
+            background-image: url("img/welbj.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .mui-table-view-cell.mui-active {
+            background-color:transparent;
+        }
+        .mui-table-view-cell.mui-collapse .mui-collapse-content {
+            background: transparent;
+        }
+        .mui-slider-indicator .mui-active.rid_one {
+            background:linear-gradient(left, #ff8f00,#ff5800);
+            background: -moz-linear-gradient(left, #ff8f00, #ff5800);
+            background: -o-linear-gradient(left,#ff8f00, #ff5800);
+            background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#ff8f00), to(#ff5800));
+            background-clip: border-box;
+        }
+        .mui-slider-indicator .mui-active.rid_two {
+            background:linear-gradient(left, #ffd25c,#ffc11f);
+            background: -moz-linear-gradient(left, #ffd25c, #ffc11f);
+            background: -o-linear-gradient(left,#ffd25c, #ffc11f);
+            background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#ffd25c), to(#ffc11f));
+            background-clip: border-box;
+        }
+        .mui-slider-indicator .mui-active.rid_three {
+            background:linear-gradient(left, #00e993,#00c97f);
+            background: -moz-linear-gradient(left, #00e993, #00c97f);
+            background: -o-linear-gradient(left,#00e993, #00c97f);
+            background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#00e993), to(#00c97f));
+            background-clip: border-box;
+        }
+        .mui-slider{
+            z-index:1;
+        }
+    </style>
+</head>
+<body>
+<div class="mui-content" style="margin-top: 0px;">
+    <!--<li class="mui-table-view-cell mui-collapse mui-active" style="padding-top: 0px;">-->
+    <!--<a class="mui-navigate-right" href="#">图片轮播</a>-->
+    <div id="big" class="mui-collapse-content">
+        <div id="tiaoguo" class="font14 baceee maincolor padding-left-right10px ridus3">跳过</div>
+        <div id="slider" class="mui-slider" style="overflow: hidden;">
+            <div class="sliderdiv mui-slider-group">
+                <!-- 第一张 -->
+                <div id="autoheight" class="mui-slider-item mui-text-center" style="height: 7.9rem;">
+                    <ul>
+                        <li class="padding-top-bottom10px top10"></li>
+                        <li class="font24  padding-10">申请审批</li>
+                        <li class="font18 graycolor padding-10">业务申请极速到达&审批第一时间处理</li>
+                        <li style="position: fixed;bottom: -5px;width: 100%;">
+                            <img src="img/welimg-1.png" style="width: 3.5rem;margin-bottom: -5px;">
+                        </li>
+                    </ul>
+                </div>
+                <!-- 第二张 -->
+                <div class="mui-slider-item mui-text-center">
+                    <ul>
+                        <li class="padding-top-bottom10px top10"></li>
+                        <li class="font24  padding-10">业务查询</li>
+                        <li class="font18 graycolor padding-10">查询业务触手可及&结果反馈迅速展示</li>
+                        <li style="position: fixed;bottom: -5px;width: 100%;">
+                            <img src="img/welimg-2.png" style="width: 3.5rem;margin-bottom: -5px;">
+                        </li>
+                    </ul>
+                </div>
+                <!-- 第三张 -->
+                <div class="mui-slider-item mui-text-center">
+                    <ul>
+                        <li class="padding-top-bottom10px top10"></li>
+                        <li class="font24  padding-10">校内服务</li>
+                        <li class="font18 graycolor padding-10">学习、工作、生活随时帮你解决</li>
+                        <li style="position: fixed;bottom: -5px;width: 100%;">
+                            <img src="img/welimg-3.png" style="width: 3.5rem;margin-bottom: -5px;">
+                        </li>
+                    </ul>
+                </div>
+                <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                <!-- <div class="mui-slider-item mui-slider-item-duplicate mui-text-center">
+                     <ul>
+                         <li class="padding-top-bottom15px"></li>
+                         <li class="font24  padding-10">申请审批</li>
+                         <li class="font18 graycolor padding-10">业务申请极速到达&审批第一时间处理</li>
+                         <li style="position: fixed;bottom: -5px;width: 100%;">
+                             <img src="img/welimg-1.png" style="width: 3.5rem;margin-bottom: -5px;">
+                         </li>
+                     </ul>
+                 </div>-->
+            </div>
+            <!--手机边框-->
+            <div class="phonediv mui-text-center">
+                <img src="img/shouji.png" style="width: 100%;"/>
+            </div>
+
+        </div>
+        <div class="sliderdot mui-slider-indicator">
+            <div class="float-left" style="width: 20%">
+                <div class="rid_one mui-indicator mui-active card-middle1 ">
+                    <i class="whitecolor iconfont icon-yewubanli whitecolor card-png1"></i>
+                    <div id="apply" class="font12 margintop-5px maincolor">办理</div>
+                </div>
+            </div>
+            <div class="horora-yel float-left margintop-20px" style="width: 20%;height: 1px;"></div>
+            <div class="float-left" style="width: 20%">
+                <div class="rid_two mui-indicator card-middle1 horbackyellow">
+                    <i class=" iconfont icon-chaxun whitecolor card-png1 whitecolor"></i>
+                    <div id="accept" class="font12 margintop-5px graycolor">查询</div>
+                </div>
+            </div>
+            <div class="horyel-gre float-left margintop-20px" style="width: 20%;height: 1px;"></div>
+            <div class="float-left" style="width: 20%">
+                <div class="rid_three mui-indicator card-middle1 horbackgreen ">
+                    <i class=" iconfont icon-fuwu whitecolor card-png1 whitecolor"></i>
+                    <div id="design" class="font12 margintop-5px graycolor">服务</div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <ul class="mui-text-center margintop-10px">
+                <li id="useNow" class="rid_text horbackground whitecolor">立即使用</li>
+            </ul>
+        </div>
+    </div>
+    <!--</li>-->
+</div>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script>
+    (function(mui, doc) {
+        var width = window.screen.availWidth;
+        if(mui.os.wechat){
+            if(width<= 375){
+                $('#autoheight').height(7.25+'rem');
+//                alert('7.25');
+                $('.top10').addClass('display-none');
+            }else{
+//                alert('7.9');
+                $('#autoheight').height(8.0+'rem');
+            }
+        }
+        $('.mui-content').css('margin-top','0px');
+        /* mui.init();
+         mui.plusReady(function() {});*/
+        var clientHeight = document.documentElement.clientHeight;
+        $('.mui-content').height(clientHeight);
+        mui("#slider").slider({
+            interval: 2000
+        });
+        $(".sliderdiv").bind('DOMSubtreeModified', function(e) {
+//            alert('element now contains: ' + $(e.target).html());
+        });
+        //跳过
+        mui(".mui-content").on('tap','#tiaoguo',function(){
+            mui.openWindow({
+//                url:'loading.html',
+                url:'html-kuanDaiPay/demo1.html',
+                id:'loading',
+                extras:{}
+            });
+        });
+        //立即使用
+        mui(".mui-content").on('tap','#useNow',function(){
+            mui.openWindow({
+                url:'loading.html',
+                id:'loading',
+                extras:{}
+            });
+        });
+    }(mui, document));
+
+    (function(window, $){
+        var Rhui = window.Rhui || {};
+        window.Rhui = Rhui;
+        Rhui.mobile = (function(){
+            var touch = {
+                distance: 30,  //滑动距离，超过该距离触发swipe事件，单位像素。
+                duration: 1000 //滑动时长，超过该时间不触发swipe，单位毫秒。
+            };
+            function bindSwipe(el, swipe, callback, triggerOnMove, isStopPropagation, isPreventDefault){
+                var startPoint, endPoint, timer;
+                function swipeDirection(x1, y1, x2, y2){
+                    var diffX = x1 - x2,
+                            diffY = y1 - y2,
+                            absX = Math.abs(diffX),
+                            absY = Math.abs(diffY),
+                            swipe;
+                    if(absX >= absY){
+                        if(absX >= touch.distance){
+                            swipe = diffX > 0 ? 'swipeLeft' : 'swipeRight';
+                        }
+                    }else{
+                        if(absY >= touch.distance){
+                            swipe = diffY > 0 ? 'swipeUp' : 'swipeDown';
+                        }
+                    }
+                    return swipe;
+                }
+                // 清除本次滑动数据
+                function clearSwipe(){
+                    startPoint = undefined;
+                    endPoint = undefined;
+                    if(timer !== undefined){
+                        clearTimeout(timer);
+                        timer = undefined;
+                    }
+                }
+                function execSwipe(el, event){
+                    if(startPoint && endPoint && swipeDirection(startPoint.x, startPoint.y, endPoint.x, endPoint.y) === swipe){
+                        callback.call(el, event);
+                        return true;
+                    }
+                }
+                el.addEventListener('touchstart', function(event){
+                    var self = this, touchPoint = event.touches[0];
+                    if(isStopPropagation){
+                        event.stopPropagation();
+                    }
+                    if(isPreventDefault){
+                        event.preventDefault();
+                    }
+                    startPoint = {
+                        x: Math.floor(touchPoint.clientX),
+                        y: Math.floor(touchPoint.clientY)
+                    };
+                    timer = setTimeout(function(){
+                        //如果超时，清空本次touch数据
+                        clearSwipe();
+                    }, touch.duration);
+                });
+                el.addEventListener('touchmove', function(event){
+                    var self = this, touchPoint = event.touches[0];
+
+                    if(isStopPropagation){
+                        event.stopPropagation();
+                    }
+
+                    if(isPreventDefault){
+                        event.preventDefault();
+                    }
+                    if(startPoint){
+                        endPoint = {
+                            x: Math.floor(touchPoint.clientX),
+                            y: Math.floor(touchPoint.clientY)
+                        };
+                        //执行swipe事件判断，是否符合触发事件
+                        if(triggerOnMove){
+                            if(execSwipe(self, event)){
+                                clearSwipe();
+                            }
+                        }
+                    }
+                });
+
+                el.addEventListener('touchend', function(event){
+                    if(isStopPropagation){
+                        event.stopPropagation();
+                    }
+
+                    if(isPreventDefault){
+                        event.preventDefault();
+                    }
+
+                    execSwipe(self, event);
+                    //清除本次touch数据
+                    clearSwipe();
+                });
+            }
+            touch.swipeLeft = function(el, callback, options){
+                if(options){
+                    bindSwipe(el, 'swipeLeft', callback, options.triggerOnMove, options.isStopPropagation, options.isPreventDefault);
+                }else{
+                    bindSwipe(el, 'swipeLeft', callback);
+                }
+
+            };
+            touch.swipeRight = function(el, callback, options){
+                if(options){
+                    bindSwipe(el, 'swipeRight', callback, options.triggerOnMove, options.isStopPropagation, options.isPreventDefault);
+                }else{
+                    bindSwipe(el, 'swipeRight', callback);
+                }
+            };
+            touch.swipeUp = function(el, callback, options){
+                if(options){
+                    bindSwipe(el, 'swipeUp', callback, options.triggerOnMove, options.isStopPropagation, options.isPreventDefault);
+                }else{
+                    bindSwipe(el, 'swipeUp', callback);
+                }
+            };
+
+            touch.swipeDown = function(el, callback, options){
+                if(options){
+                    bindSwipe(el, 'swipeDown', callback, options.triggerOnMove, options.isStopPropagation, options.isPreventDefault);
+                }else{
+                    bindSwipe(el, 'swipeDown', callback);
+                }
+            };
+            return touch;
+        })();
+        // 注册jquery方法
+        if($ && $.fn){
+            $.fn.extend({
+                rhuiSwipe: function(name, callback, opts){
+                    var fnSwipe = Rhui.mobile[name];
+                    if(this.length > 0 && fnSwipe){
+                        this.each(function(){
+                            fnSwipe(this, callback, opts);
+                        });
+                    }
+                    return this;
+                }
+            });
+        }
+    })(window, $);
+    var t=setInterval('show()',3000);
+    $('.mui-content').rhuiSwipe('swipeLeft', function(event){
+        if($('.rid_three').hasClass('mui-active')){
+            /*$('.rid_text').removeClass('horbackgreen');
+             $('.rid_text').addClass('horbackground');*/
+            /* $('#apply').addClass('maincolor');
+             $('#apply').removeClass('graycolor');*/
+            clearInterval(t);
+            t=setInterval('show()',3000);
+        }else if($('.rid_one').hasClass('mui-active')){
+            clearInterval(t);
+            $('.rid_one').removeClass('mui-active');
+            $('.rid_two').addClass('mui-active');
+            $('.rid_text').removeClass('horbackground');
+            $('.rid_text').addClass('horbackyellow');
+            $('#accept').addClass('yellowcolor');
+            $('#accept').removeClass('graycolor');
+            $('#apply').removeClass('maincolor');
+            $('#apply').addClass('graycolor');
+            t=setInterval('show()',3000);
+        }else if($('.rid_two').hasClass('mui-active')){
+            clearInterval(t);
+            $('.rid_two').removeClass('mui-active');
+            $('.rid_three').addClass('mui-active');
+            $('.rid_text').removeClass('horbackyellow');
+            $('.rid_text').addClass('horbackgreen');
+            $('#design').addClass('greencolor');
+            $('#design').removeClass('graycolor');
+            $('#accept').removeClass('yellowcolor');
+            $('#accept').addClass('graycolor');
+            t=setInterval('show()',3000);
+        }
+    }, {});
+    $('.mui-content').rhuiSwipe('swipeRight', function(event){
+        if($('.rid_three').hasClass('mui-active')){
+            $('.rid_text').removeClass('horbackgreen');
+            $('.rid_text').addClass('horbackyellow');
+            $('#design').removeClass('greencolor');
+            $('#design').addClass('graycolor');
+            $('#accept').addClass('yellowcolor');
+            $('#accept').removeClass('graycolor');
+            $('.rid_three').removeClass('mui-active');
+            $('.rid_two').addClass('mui-active');
+            clearInterval(t);
+            t=setInterval('show()',3000);
+        }else if($('.rid_one').hasClass('mui-active')){
+            /*$('.rid_text').removeClass('horbackground');
+             $('.rid_text').addClass('horbackyellow');*/
+            /*$('#accept').addClass('yellowcolor');
+             $('#accept').removeClass('graycolor');*/
+            clearInterval(t);
+            t=setInterval('show()',3000);
+        }else if($('.rid_two').hasClass('mui-active')){
+            $('.rid_text').removeClass('horbackyellow');
+            $('.rid_text').addClass('horbackground');
+            $('#apply').addClass('maincolor');
+            $('#apply').removeClass('graycolor');
+            $('#accept').removeClass('yellowcolor');
+            $('#accept').addClass('graycolor');
+            $('.rid_two').removeClass('mui-active');
+            $('.rid_one').addClass('mui-active');
+            clearInterval(t);
+            t=setInterval('show()',3000);
+        }
+    }, {});
+    function show() {
+        if($('.rid_text').hasClass('horbackground')){
+            $('.rid_one').removeClass('mui-active');
+            $('.rid_two').addClass('mui-active');
+            $('.rid_text').removeClass('horbackground');
+            $('.rid_text').addClass('horbackyellow');
+            $('#apply').removeClass('maincolor');
+            $('#apply').addClass('graycolor');
+            $('#accept').addClass('yellowcolor');
+            $('#accept').removeClass('graycolor');
+        }else if($('.rid_text').hasClass('horbackyellow')){
+            $('.rid_two').removeClass('mui-active');
+            $('.rid_three').addClass('mui-active');
+            $('.rid_text').removeClass('horbackyellow');
+            $('.rid_text').addClass('horbackgreen');
+            $('#accept').removeClass('yellowcolor');
+            $('#accept').addClass('graycolor');
+            $('#design').addClass('greencolor');
+            $('#design').removeClass('graycolor');
+        }else if($('.rid_text').hasClass('horbackgreen')){
+           /* $('.rid_one').removeClass('mui-active');
+            $('.rid_two').addClass('mui-active');*/
+            $('#apply').removeClass('maincolor');
+            $('#apply').addClass('graycolor');
+            window.location.href = 'loading.html';
+        }
+    }
+</script>
+</body>
+</html>

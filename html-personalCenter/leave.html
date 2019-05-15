@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>咨询与留言</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .feedback {
+            background-color: #fffcf9;
+            text-align: right;
+        }
+        .iconfont{
+            font-size: 18px;
+        }
+        textarea {
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <header class="mui-bar mui-bar-nav horbackground">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title whitecolor font18">咨询与留言</h1>
+    </header>
+    <div class="mui-content">
+        <div class="feedback font32 padding-10">
+            <span class="mui-icon iconfont icon-shenqing-2 mui-active"></span>
+            记录
+        </div>
+        <div class="mui-input-row height-auto padding-10" >
+            <textarea class="lineheight-25px ridus5" style="border: 1px solid #dddddd;" id="textarea" rows="3" placeholder="请输入问题或建议，我们会尽快回复！"></textarea>
+        </div>
+        <div class="padding-10 fixed-bottom">
+            <button type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+                发送
+            </button>
+        </div>
+    </div>
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script>
+    document.write('<script src="../js/biz/leave.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</html>

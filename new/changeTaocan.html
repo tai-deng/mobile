@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>更改套餐</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <!--<link rel="stylesheet" href="../css/setSecurityCode.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">更改套餐</h1>
+</header>
+<div class="mui-content content">
+    <div class="padding-10 line25 font16 gray-8color"><span id="userName" class="maincolor"></span>&nbsp; 当前套餐：</div>
+    <ul  class="mui-table-view mui-table-view-striped mui-table-view-condensed font14 marginbottom-10px">
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-iconfontlist mui-active"></span><span class="graycolor">&nbsp;套餐：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="taocan" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-kaizhengming mui-active"></span><span class="graycolor">&nbsp;资费：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="bizozhun" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-shixiao mui-active"></span><span class="graycolor">&nbsp;失效日期：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="end_time" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!--无预约-->
+    <ul id="noYuyue" class="mui-table-view mui-table-view-striped mui-table-view-condensed font14">
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="font16">&nbsp;更换套餐</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-iconfontlist mui-active"></span><span class="graycolor">&nbsp;套餐：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="taocanNew" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-kaizhengming mui-active"></span><span class="graycolor">&nbsp;资费：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="bizozhunNew" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!--有预约-->
+    <ul id="yesYuyue" class="mui-table-view mui-table-view-striped mui-table-view-condensed font14">
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="font16">&nbsp;<span class="maincolor">已预约</span>更换套餐</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-iconfontlist mui-active"></span><span class="graycolor">&nbsp;套餐：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="taocanChange" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell ">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-kaizhengming mui-active"></span><span class="graycolor">&nbsp;资费：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="bizozhunChange" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-icon1 mui-active"></span><span class="graycolor">&nbsp;更改日期：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="change_time" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="mui-table-view-cell">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <div class="oa-contact-avatar mui-table-cell" style="width: 40%;">
+                        <span class="mui-icon iconfont icon-shengxiao mui-active"></span><span class="graycolor">&nbsp;生效日期：</span>
+                    </div>
+                    <div class="oa-contact-content mui-table-cell mui-text-right">
+                        <div class="mui-clearfix">
+                            <span id="shengxiao_time" class="oa-contact-position"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div id="noTips" class="gray-8color font14 padding-10"><span class="maincolor">温馨提示：</span><br/>
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;-->1、新套餐将在<span class="maincolor">当前套餐失效后</span>立即生效<br/>
+        2、校园网服务中心地址：<span class="schoolAdress">北校区阳光服务大厅；南校区南校门原招生就业处</span>
+    </div>
+    <div id="yesTips" class="gray-8color font14 padding-10 display-none"><span class="maincolor">温馨提示：</span><br/>
+        <!--&nbsp;&nbsp;&nbsp;&nbsp;-->1、您已经预约更换过套餐，如需再更换套餐，现有套餐到期后将以最新更换套餐为准。<br/>
+        2、校园网服务中心地址：<span class="schoolAdress">长沙师范学院：北校区阳光服务大厅；南校区南校门原招生就业处</span>
+    </div>
+    <div class="padding-10 fixed-bottom">
+        <button id="next" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+            下一步
+        </button>
+    </div>
+</div>
+
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/URI.min.js"></script>
+<!--<script src="../js/new/changeTaocan.js"></script>-->
+<script>
+    document.write('<script src="../js/new/changeTaocan.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>

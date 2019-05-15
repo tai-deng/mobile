@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/appIndex.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground" ><!--style="position: fixed;top: 0px;"-->
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <h1 class="mui-title whitecolor font18">首页</h1>
+    <!--<div class="mui-input-row mui-search whitecolor font12">
+        <input type="search" class="mui-input-clear" placeholder="大家都在搜“考研申请”">
+    </div>-->
+</header>
+<div class="mui-content">
+    <!--图片轮播-->
+    <li id="topSlider" class="mui-table-view-cell mui-collapse mui-active" style="padding-top: 0px;">
+        <!--<a class="mui-navigate-right" href="#">图片轮播</a>-->
+        <div class="mui-collapse-content" style="margin-top: 0px;">
+            <div id="slider" class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop sliderContainer">
+                    <div id="sliderDiv" class="display-none">
+                        <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#">
+                                <img src="img/banner-3.jpg">
+                            </a>
+                        </div>
+                        <!-- 第一张 -->
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="img/banner-1.jpg">
+                            </a>
+                        </div>
+                        <!-- 第二张 -->
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="img/banner-2.jpg">
+                            </a>
+                        </div>
+                        <!-- 第三张 -->
+                        <div class="mui-slider-item">
+                            <a href="#">
+                                <img src="img/banner-3.jpg">
+                            </a>
+                        </div>
+                        <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#">
+                                <img src="img/banner-1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <!--<div class="mui-indicator"></div>-->
+                </div>
+            </div>
+        </div>
+    </li>
+    <!--九宫格-->
+    <div id="Gallery" class="mui-slider bacfff">
+        <div class="mui-slider-group">
+            <div class="mui-slider-item">
+                <ul id="procdefCLass" class="mui-table-view mui-grid-view mui-grid-9" style="padding-bottom: 10px;">
+                    <!--<ul class="mui-table-view mui-grid-view mui-grid-9" style="padding-bottom: 10px;">
+                        <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                            <a href="#">
+                            <span class="mui-icon &lt;!&ndash;mui-icon-more&ndash;&gt;">
+                                <img src="img/more.png" class="width80">
+                            </span>
+                                <div id="Hall-more" class="mui-media-body font12">数字迎新</div>
+                            </a>
+                        </li>
+                    </ul>-->
+                    <!--<li id="yingxin" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a>
+                            <div class="card-middle horbackpure">
+                                <i class=" mui-icon iconfont icon-yingxin whitecolor card-png"></i>
+                                </div>
+                            <div class="mui-media-body font12">数字迎新</div>
+                        </a>
+                    </li>
+                    <li id="kebiao" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a>
+                            <div class="card-middle horbackgreen">
+                                <i class=" mui-icon iconfont icon-kebiao1 whitecolor card-png"></i>
+                            </div>
+                            <div class="mui-media-body font12">课表查询</div>
+                        </a>
+                    </li>
+                    <li id="yikatong" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a>
+                            <div class="card-middle horbackblue">
+                                <i class=" mui-icon iconfont icon-yiqiatong whitecolor card-png"></i>
+                            </div>
+                            <div class="mui-media-body font12">一卡通记录查询</div>
+                        </a>
+                    </li>
+                    <li id="zhidao" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a>
+                            <div class="card-middle horbackyellow">
+                                <i class=" mui-icon iconfont icon-huiyishi whitecolor card-png"></i>
+                            </div>
+                            <div class="mui-media-body font12">指导计划查询</div>
+                        </a>
+                    </li>
+                    <li id="chengji" class="form mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a>
+                            <div class="card-middle horbackred">
+                                <i class=" mui-icon iconfont icon-chaxun whitecolor card-png"></i>
+                            </div>
+                            <div class="mui-media-body font12">成绩查询</div>
+                        </a>
+                    </li>-->
+                </ul>
+            </div>
+            <!--<div class="mui-slider-item">
+                <ul class="mui-table-view mui-grid-view mui-grid-9" style="padding-bottom: 10px;">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+                        <a href="#">
+                            <span class="mui-icon &lt;!&ndash;mui-icon-more&ndash;&gt;">
+                                <img src="img/more.png" class="width80">
+                            </span>
+                            <div id="Hall-more" class="mui-media-body font12">更多</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+        <div class="mui-slider-indicator">
+            <!--<div class="mui-indicator mui-active"></div>-->
+            <!--<div class="mui-indicator"></div>-->
+        </div>
+    </div>
+
+    <div class="padding-5 bacfff" style="margin-top: 10px; width: 100%;">
+        <div id="up_zzjs" class="bacfff">
+            <div id="notice" class="float-left noticeText">
+                <img src="img/notice-text.png" width="80%;">
+            </div>
+            <div class="float-left noticeLittleImg">
+                <!--<img src="img/notice.png" width="16px;">-->
+                <i class="iconfont icon-laba" style="color: #ff5800;"></i>
+            </div>
+            <div id="marqueebox" class="float-left noticeUp">
+                <div id="up_li" class="noticeContainer">
+                    <!--<div class="">
+                        <a href="" target="">
+                            <div class="noticeContent">滚动文字一号滚动文字一号滚动文字一号滚动文字一号</div>
+                        </a>
+                    </div>
+                    <div class="">
+                        <a href="" target="">
+                            <div class="noticeContent">滚动文字er号滚动文字er号滚动文字er号滚动文字er号</div>
+                        </a>
+                    </div>
+                    <div class="">
+                        <a href="" target="">
+                            <div class="noticeContent">滚动文字san号滚动文字san号滚动文字san号</div>
+                        </a>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+<!--服务进度-->
+    <div id="index_jindu" class="mui-table-view margintop-10px">
+        <div class="padding-left-right10px groupTitle">
+            <div class="float-left maincolor groupDiv" >
+                <div class="groupTiao"></div>
+                服务进度
+            </div>
+            <div id="service_more" class="float-right font12 graycolor">更多>></div>
+            <div style="clear: both;"></div>
+        </div>
+        <ul class="mui-table-view" id="fuwuJindu">
+            <!--<li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    &lt;!&ndash;<img class="mui-media-object mui-pull-left margintop-10px" src="img/recomimg_05.png">&ndash;&gt;
+                    <div class="card-middle1 horbackred mui-pull-left margintop-10px">
+                        <i class=" mui-icon iconfont icon-chaxun whitecolor card-png1"></i>
+                    </div>
+                    <div class="mui-media-body font14 paddingleft5px">
+                        <span id="serviceone">设备购置申请</span>
+                        <div style="clear: both;"></div>
+                        <div class="float-left ">
+                            <p class='mui-ellipsis font12'><span id="tipstatus1">申请人:</span><span id="tipone">张三</span></p>
+                            <p class='mui-ellipsis font12' id="time1">2017-06-25 17:56:05</p>
+                        </div>
+                        <div class="float-right">
+                            <button id="btn1" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font14 btn float-right"
+                                    style="line-height: 20px;">
+                                快速办理
+                            </button>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
+            </li>-->
+        </ul>
+    </div>
+<!--个性化服务-->
+    <div class="mui-table-view margintop-10px">
+        <div class="padding-left-right10px groupTitle">
+            <div class="float-left maincolor groupDiv" >
+                <div class="groupTiao"></div>
+                个性化服务
+            </div>
+            <div id="personal_more" class="float-right font12 graycolor">更多>></div>
+            <div style="clear: both;"></div>
+        </div>
+        <ul class="mui-table-view padding-10">
+            <li id="repair" class="padding-10 float-left persenDiv">
+                <img src="img/baojian.png" class="persenPng"/>
+                <div class="maincolor font14">报修报检</div>
+            </li>
+            <li id="kaoqin" class="padding-10 float-left persenDiv" style="margin: 0px 2%">
+                <img src="img/kaoqin.png" class="persenPng"/>
+                <div class="maincolor font14">宽带缴费</div>
+            </li>
+            <li id="dinggang" class="padding-10 float-left persenDiv">
+                <img src="img/dinggang.png" class="persenPng"/>
+                <div class="maincolor font14">顶岗实习</div>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+
+    </div>
+<!--服务分类-->
+    <div class="mui-table-view margin-top-bottom10px ">
+        <div class="padding-left-right10px groupTitle">
+            <div class="float-left maincolor groupDiv" >
+                <div class="groupTiao"></div>
+                服务分类
+            </div>
+            <div id="fenlei_more" class="float-right font12 graycolor">更多>></div>
+            <div style="clear: both;"></div>
+        </div>
+        <ul class="mui-table-view">
+            <li id="ceshi" class="hall mui-table-view-cell mui-media float-left" style="background-color: #fffcfb;width: 50%;border-right: 1px solid #eeeeee;">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="img/houqin.png">
+                    <div class="mui-media-body font16">
+                        后勤生活
+                        <div style="clear: both;"></div>
+                        <div class="font14">
+                            <p class='mui-ellipsis'>办理校园内后勤服务</p>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hall mui-table-view-cell mui-media float-left" style="background-color: #fffcfb;width: 50%;">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="img/it.png">
+                    <div class="mui-media-body font16">
+                        IT服务
+                        <div style="clear: both;"></div>
+                        <div class="font14">
+                            <p class='mui-ellipsis'>互联网信息化运用</p>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hall mui-table-view-cell mui-media float-left" style="background-color: #fffcfb;width: 50%;border-right: 1px solid #eeeeee;">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="img/jiaoxue.png">
+                    <div class="mui-media-body font16">
+                        教学教务
+                        <div style="clear: both;"></div>
+                        <div class="font14">
+                            <p class='mui-ellipsis'>课表、成绩、教学</p>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="hall mui-table-view-cell mui-media float-left" style="background-color: #fffcfb;width: 50%;">
+                <a href="javascript:;">
+                    <img class="mui-media-object mui-pull-left" src="img/xingzheng.png">
+                    <div class="mui-media-body font16">
+                        行政科研
+                        <div style="clear: both;"></div>
+                        <div class="font14">
+                            <p class='mui-ellipsis'>行政事务、科研课题研究</p>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </a>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+
+    </div>
+
+</div>
+<!--<script type="text/html" id="sliderList">
+
+</script>-->
+<script type="text/html" id="noticeTemp">
+    {{each notice as notice index}}
+    <div id="noticeDetail" data-id="{{notice[1]}}">
+        <a href="" target="">
+            <div class="noticeContent">{{notice[0]}}</div>
+        </a>
+    </div>
+    {{/each}}
+</script>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/URI.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/biz/appIndex.js"></script>
+<script>
+</script>
+</body>
+</html>

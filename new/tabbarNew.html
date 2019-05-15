@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        html,
+        body {
+            /*background-color: #efeff4;*/
+        }
+    </style>
+</head>
+
+<body>
+<!--<header class="mui-bar mui-bar-nav horbackground">
+    <h1 id="title" class="mui-title whitecolor font18 display-none">首页</h1>
+    <div id="search" class="mui-input-row mui-search whitecolor font12 ">
+        <input type="search" class="mui-input-clear" placeholder="大家都在搜“考研申请”">
+    </div>
+</header>-->
+<nav id="navbar" class="mui-bar mui-bar-tab" style="border-top: 1px solid #dddddd;">
+    <a id="defaultTab" class="mui-tab-item mui-active" href="indexNew.html">
+        <span class="iconfont mui-icon icon-shouye1"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+   <!-- <a id="tab_banli" class="mui-tab-item" href="html-application/businessHanding.html">
+        <span class="mui-icon mui-icon-compose">&lt;!&ndash;<span class="mui-badge">9</span>&ndash;&gt;</span>
+        &lt;!&ndash;<span class="iconfont mui-icon icon-yewubanli"></span>&ndash;&gt;
+        <span class="mui-tab-label">办理</span>
+    </a>-->
+    <!-- <a id="tab_faxian" class="mui-tab-item" href="">
+         <span class="mui-icon mui-icon-navigate"></span>
+         &lt;!&ndash;<span class="iconfont mui-icon icon-faxian"></span>&ndash;&gt;
+         <span class="mui-tab-label">发现</span>
+     </a>-->
+    <a id="tab_mine" class="mui-tab-item" href="mine.html"><!---->
+        <span class="iconfont mui-icon icon-wode1"></span>
+        <!--<span class="iconfont mui-icon icon-wo"></span>-->
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+<div class="mui-content" style="padding-bottom: 51px !important;"></div>
+
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/new/tabbarNew.js"></script>-->
+<script>
+        document.write('<script src="../js/new/tabbarNew.js?time='+new Date().getTime()+'">'+'<'+'/script>');
+</script>
+<script type="text/javascript" charset="utf-8">
+    var height = window.screen.height;
+    //安卓不适用，因为有的安卓手机底部有虚拟的返回按钮
+    if(mui.os.ios){
+        if(mui.os.wechat){
+            document.getElementById('navbar').style.top = (height - 115) + "px";
+        }else{
+//            document.getElementById('navbar').style.top = (height - 50) + "px";
+        }
+    }
+    /*浏览器的兼容处理方法*/
+    document.querySelector('body').addEventListener('touchstart',function (ev) {
+        passive=false;
+        event.preventDefault();
+    });
+</script>
+</body>
+</html>

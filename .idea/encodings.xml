@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js/kuanDai/jiaofei.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/kuanDai/payList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/changeDetail.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/changePay.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/changeTaocan.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/chooseTaocan.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/completeInformation.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/enterNew.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/indexNew.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/mine.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/register.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/sendMessageCode.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/new/tabbarNew.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

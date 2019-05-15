@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/mui.picker.min.css">
+    <link rel="stylesheet" href="css/mui.popoper.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+    <style>
+        .mui-input-row label {
+            padding: 11px 10px;
+        }
+        select{
+            background-color: #f9f7f2;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">申请页面</h1>
+</header>
+<div class="mui-content bacdan content" style="padding-bottom: 0px;">
+    <div id="guide" class="padding-10 font12 bacfff" style="border-bottom: 1px solid #ff5800;">
+        <span class="mui-icon mui-icon-info" style="font-size: 12px;"></span>
+        <span>温馨提示：为了更好的了解业务流程，请点击</span>
+        <span id="zhinan" class="maincolor">查看办事指南</span>
+    </div>
+    <form class="mui-input-group font14" id="table">
+        <input id="formid" name="formid" style="display:none;"/>
+        <input id="formname" name="formname" style="display:none;"/>
+        <input id="fields" name="fields" style="display:none;"/>
+        <input id="userid" name="userid" style="display:none;"/>
+        <input id="userdept" name="userdept" style="display:none;"/>
+        <input id="userrole" name="userrole" style="display:none;"/>
+        <input id="formkey" name="formkey" style="display:none;"/>
+        <input id="platform" name="platform" style="display:none;"/>
+        <input id="username" name="username" style="display:none;"/>
+        <!--<input type="text" name="usr_name" required="required" />-->
+
+       <!-- <div class="mui-input-row height-auto" >
+            <label class="width30 mui-text-right lineheight-25px">申请人</label>
+            <input class="width70 lineheight-25px height-auto" maxlength="20" onkeyup="NumberCheck(this)" aria-required="true" type="text" placeholder="请输入您的姓名">
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width30 mui-text-right lineheight-25px">所在系</label>
+            <input class="width70 lineheight-25px height-auto" type="text" onkeyup="num(this)" placeholder="请输入您所在的院系">
+        </div>
+        <div  class="mui-input-row height-auto">
+            <label class="width30 mui-text-right lineheight-25px">申请时间</label>
+            <input id="date" class="date width70 lineheight-25px height-auto" type="text" placeholder="请输入您的申请时间"
+                   data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:1880,&quot;endYear&quot;:3020}">
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width30 mui-text-right lineheight-25px">调课时间</label>
+            <input id="date1" class="date width70 lineheight-25px height-auto " type="text" placeholder="请输入您调课的时间"
+                   data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:2017,&quot;endYear&quot;:2018}">
+        </div>
+        <div class="mui-input-row height-auto">
+            &lt;!&ndash;<label class="width30 mui-text-right lineheight-25px iconfont "><span class="font-family font14">报修区域</span></label>&ndash;&gt;
+            <label class="width30 mui-text-right lineheight-25px">报修区域</label>
+            <select name="select" id="select_k1" class="width70 margintop-5px">
+                <option value="0" class="graycolor">请选择报修区域</option>
+                <option value="1" >新浪网</option>
+                <option value="2">搜房网</option>
+            </select>
+            <span class="iconfont icon-xiala"></span>
+        </div>-->
+        <div class="padding-10 fixed-bottom bacfff">
+            <button id="back" type="button" class="mui-btn  ridus5 mui-btn-outlined maincolor font18 btn-back float-left">
+                返回
+            </button>
+            <button id="tijiao" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn-back1 float-right">
+                立即提交
+            </button>
+            <div style="clear: both;"></div>
+        </div>
+    </form>
+</div>
+
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/URI.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script src="js/jquery-form.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_zh.js"></script>
+<script src="js/mui.picker.min.js"></script>
+<script src="js/mui.popoper.js"></script>
+<script src="js/biz/form.js"></script>
+<script>
+    /*$(function(){
+        $(":input").focus(function(){
+            alert('9090');
+    //        $(this).addClass("focus");
+            $('.fixed-bottom').css({"z_index": '-1'});
+        }).blur(function(){
+    //        $(this).removeClass("focus");
+            $('.fixed-bottom').css({"z_index": '1'});
+        });
+    })*/
+    $("textarea").bind('onblur',function(){
+        $('.fixed-bottom').css('position','static');
+        alert('9090');
+    }).bind('blur',function(){
+        alert('1236');
+        $('.fixed-bottom').css({'position':'fixed','bottom':'0'});
+    });
+
+    function ignoreSpaces(toName,value){
+        document.getElementById(toName).value = value;
+    }
+    //只能输入小数后两位
+    function num(obj){
+        obj.value = obj.value.replace(/[^\d.]/g,""); //清除"数字"和"."以外的字符
+        obj.value = obj.value.replace(/^\./g,""); //验证第一个字符是数字
+        obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个, 清除多余的
+        obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3'); //只能输入两个小数
+    }
+    //只能输入整数
+    function NumberCheck(t){
+        var num = t.value;
+        var re=/^\d*$/;
+        if(!re.test(num)){
+            isNaN(parseInt(num))?t.value=0:t.value=parseInt(num);
+        }
+    }
+    var u = navigator.userAgent;
+    //是否是android浏览器
+    var isAndroid = u.indexOf('Android') > -1;
+    //是否是ios浏览器
+    var isIos = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    var msg = '';
+    if (isAndroid) {
+        msg = "android";
+    } else if (isIos) {
+        msg = 'ios';
+    } else {
+        msg = 'pc';
+    };
+    $("#platform").val(msg);
+</script>
+</body>
+</html>

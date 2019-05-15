@@ -1,0 +1,23 @@
+/*.mui-plus.mui-android header.mui-bar{
+    display: none;
+}*/
+.mui-plus.mui-android .mui-bar-nav~.mui-content{
+    padding: 0;
+}
+.mui-control-content {
+    /*background-color: white;*/
+    min-height: 215px;
+}
+.mui-control-content .mui-loading {
+    margin-top: 50px;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+    color: #ffffff;
+    background:linear-gradient(left, #ff8f00,#ff5800);
+    background: -moz-linear-gradient(left, #ff8f00, #ff5800);
+    background: -o-linear-gradient(left,#ff8f00, #ff5800);
+    background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#ff8f00), to(#ff5800));
+}
+.mui-radio.mui-left label, .mui-checkbox.mui-left label {
+    padding-left: 30px;
+}

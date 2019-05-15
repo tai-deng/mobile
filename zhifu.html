@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf8"/>
+    <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1; user-scalable=no;" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <!--<meta http-equiv="Access-Control-Allow-Methods" content="POST,GET">-->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>【微信支付V2.0】MWEB支付实例</title>
+    <style type="text/css">
+        /* 重置 [[*/
+        body,p,ul,li,h1,h2,form,input{margin:0;padding:0;}
+        h1,h2{font-size:100%;}
+        ul{list-style:none;}
+        body{-webkit-user-select:none;-webkit-text-size-adjust:none;font-family:Helvetica;background:#ECECEC;}
+        html,body{height:100%;}
+        a,button,input,img{-webkit-touch-callout:none;outline:none;}
+        a{text-decoration:none;}
+        /* 重置 ]]*/
+        /* 功能 [[*/
+        .hide{display:none!important;}
+        .cf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+        /* 功能 ]]*/
+        /* 按钮 [[*/
+        a[class*="btn"]{display:block;height:42px;line-height:42px;color:#FFFFFF;text-align:center;border-radius:5px;}
+        .btn-blue{background:#3D87C3;border:1px solid #1C5E93;}
+        .btn-green{background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #43C750), color-stop(1, #31AB40));border:1px solid #2E993C;box-shadow:0 1px 0 0 #69D273 inset;}
+        /* 按钮 [[*/
+        /* 充值页 [[*/
+        .charge{font-family:Helvetica;padding-bottom:10px;-webkit-user-select:none;}
+        .charge h1{height:44px;line-height:44px;color:#FFFFFF;background:#3D87C3;text-align:center;font-size:20px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+        .charge h2{font-size:14px;color:#777777;margin:5px 0;text-align:center;}
+        .charge .content{padding:10px 12px;}
+        .charge .select li{position:relative;display:block;float:left;width:100%;margin-right:2%;height:150px;line-height:150px;text-align:center;border:1px solid #BBBBBB;color:#666666;font-size:16px;margin-bottom:5px;border-radius:3px;background-color:#FFFFFF;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden;}
+        .charge .price{border-bottom:1px dashed #C9C9C9;padding:10px 10px 15px;margin-bottom:20px;color:#666666;font-size:12px;}
+        .charge .price strong{font-weight:normal;color:#EE6209;font-size:26px;font-family:Helvetica;}
+        .charge .showaddr{border:1px dashed #C9C9C9;padding:10px 10px 15px;margin-bottom:20px;color:#666666;font-size:12px;text-align:center;}
+        .charge .showaddr strong{font-weight:normal;color:#9900FF;font-size:26px;font-family:Helvetica;}
+        .charge .copy-right{margin:5px 0; font-size:12px;color:#848484;text-align:center;}
+        /* 充值页 ]]*/
+    </style>
+</head>
+<body>
+<article class="charge">
+    
+    <div style="width: 100%;height: 200px;background-color: #00c97f;display: flex;justify-content: center;align-items: center;  ">
+            <img src="img/banner-1.jpg" width="50%;" >
+    </div>
+    <h1>微信支付-H5-demo</h1>
+    <section class="content">
+        <h2>商品：测试商品。</h2>
+        <ul class="select cf">
+            <!--<li><img src="weixin.jpg" style="width:150px;height:150px"></li>-->
+        </ul>
+        <p class="copy-right">亲，此商品不提供退款和发货服务哦</p>
+        <div class="price">微信价：<strong>￥0.01元</strong></div>
+        <!--<div class="operation"><a class="btn-green" id="getBrandWCPayRequest" href="#">立即购买</a></div>-->
+        <div class="operation"><a class="btn-green" id="getBrandWCPayRequest" href="weixin://wap/pay">立即购买</a></div>
+        <!--<div class="operation"><a class="btn-green" id="getBrandWCPayRequest" href="http://wxpay.wxutil.com/mch/pay/h5.v2.php">立即购买</a></div>-->
+        <p class="copy-right">微信支付demo 由腾讯微信提供</p>
+        <a href="weixin://">立即支付</a>
+    </section>
+</article>
+<!--<a href="weixin://wap/pay?appid%3Dwxf5b5e87a6a0fde94%26noncestr%3D123%26package%3DWAP%26prepayid%3Dwx201412101630480281750c890475924233%26sign%3D53D411FB74FE0B0C79CC94F2AB0E2333%26timestamp%3D1417511263">立即支付</a>-->
+</body>
+<!--<script src="js/jquery-2.1.3.min.js"></script>-->
+<script src="js/mui.min.js"></script>
+<!--<script src="//wx.gtimg.com/wxpay_h5/fingerprint2.min.1.4.1.js"></script>-->
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script src="js/config.js"></script>
+<!--<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>-->
+<script type="text/javascript">
+    /*mui.ajax(/!*config.httpPath+*!/'http://58.20.126.132:9000/DrcomSrv/DrcomService', {
+        data: {
+            id:localStorage.getItem('id'),
+            cid:localStorage.getItem('clientid')
+        },
+        dataType: 'json', //服务器返回json格式数据
+        type: 'post', //HTTP请求类型
+        timeout: 10000, //超时时间设置为10秒；
+        beforeSend: function(request) {
+            request.setRequestHeader("X-Token",localStorage.getItem('token'));
+        },
+        success: function(ajaxData) {
+            //服务器返回响应，根据响应结果，分析是否成功；
+            alert(JSON.stringify(ajaxData));
+            if(ajaxData.meta.success === true){
+                mui.toast(ajaxData.meta.message);
+            }else{
+                mui.toast(ajaxData.meta.message);
+            }
+        },
+        error: function(xhr, type, errorThrown){
+            //异常处理；
+            console.log(type);
+            mui.toast('网络异常，请稍后再试');
+        }
+    });*/
+
+    var orderId;
+//    alert('orderId'+orderId);
+    mui.ajax(config.httpPath+'api/Broadband/queryOrderId', {
+        data: {},
+        dataType: 'json', //服务器返回json格式数据
+        type: 'post', //HTTP请求类型
+        timeout: 10000, //超时时间设置为10秒；
+        beforeSend: function (request) {
+            request.setRequestHeader("X-Token", 'aa27f609-65ec-4757-811b-d2805af1b198');
+        },
+        success: function (ajaxData) {
+            //服务器返回响应，根据响应结果，分析是否成功；
+            alert(JSON.stringify(ajaxData));
+            if (ajaxData !== '') {
+                //mui.toast(ajaxData.meta.message);
+                orderId = ajaxData;
+                /*mui.ajax(config.httpPath+'api/Broadband/toPay', {
+                    data: {
+                        amount:'0.01',
+                        userId:'test108',
+                        id:'40288aa362bcdddf0162bcfd513b0003',
+                        siteCode:'d9dd7e9e867563d613443746ab30e193',
+                        orderId:orderId
+                    },
+                    dataType: 'json', //服务器返回json格式数据
+                    type: 'post', //HTTP请求类型
+                    timeout: 10000, //超时时间设置为10秒；
+                    beforeSend: function(request) {
+                        request.setRequestHeader("X-Token",'2ac9678f-dba5-4b9c-943b-939c3ff6cc3d');
+                    },
+                    success: function (ajaxData) {
+                        alert('ajaxData=='+JSON.stringify(ajaxData));
+                        var params = Object.keys(ajaxData).map(function (key) {
+                            // body...
+                            return encodeURIComponent(key) + "=" + encodeURIComponent(ajaxData[key]);
+                        }).join("&");
+//
+                        var String2=Urlencode(params);
+//                        alert(String2);
+                        function Urlencode(clearString) {
+                            var output = '';
+                            var x = 0;
+
+                            clearString = utf16to8(clearString.toString());
+                            var regex = /(^[a-zA-Z0-9-_.]*)/;
+                            while (x < clearString.length)
+                            {
+                                var match = regex.exec(clearString.substr(x));
+                                if (match != null && match.length > 1 && match[1] != '')
+                                {
+                                    output += match[1];
+                                    x += match[1].length;
+                                }
+                                else
+                                {
+                                    if (clearString[x] == ' ')
+                                        output += '+';
+                                    else
+                                    {
+                                        var charCode = clearString.charCodeAt(x);
+                                        var hexVal = charCode.toString(16);
+                                        output += '%' + ( hexVal.length < 2 ? '0' : '' ) + hexVal.toUpperCase();
+                                    }
+                                    x++;
+                                }
+                            }
+                            function utf16to8(str)
+                            {
+                                var out, i, len, c;
+                                out = "";
+                                len = str.length;
+                                for(i = 0; i < len; i++)
+                                {
+                                    c = str.charCodeAt(i);
+                                    if ((c >= 0x0001) && (c <= 0x007F))
+                                    {
+                                        out += str.charAt(i);
+                                    }
+                                    else if (c > 0x07FF)
+                                    {
+                                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                                    }
+                                    else
+                                    {
+                                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                                    }
+                                }
+                                return out;
+                            }
+
+                            return output;
+                        }
+//                        alert("weixin://wap/pay?"+String2);
+                        //weixin开放的测试接口
+//                        location.href = "http://wxpay.weixin.qq.com/pub_v2/pay/wap.v2.php";
+                        //支付场景非法
+                       location.href =  "weixin://wap/pay?"+String2;
+                        //支付请求已失效，请重新发起支付
+//                       location.href =  "https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?"+String2;
+                        //网络环境为通过安全验证，请稍后再试
+//                       location.href =  'https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id='+ajaxData.prepayid+'&package='+ajaxData.package;
+                    },
+                    error: function (xhr, type, errorThrown) {
+                        //异常处理；
+                        console.log(type);
+                        mui.toast('网络异常，请稍后再试');
+                    }
+                });*/
+                //weixin
+                mui.ajax(config.httpPath+'api/Broadband/toPay_wx', {
+                    data: {
+                        amount:'0.01',
+                        userId:'test108',
+                        id:'40288aa362bcdddf0162bcfd513b0003',
+                        siteCode:'d9dd7e9e867563d613443746ab30e193' ,
+                        orderId:orderId,
+                        foreignId: '',
+                        foreignType:''
+                    },
+                    dataType: 'json', //服务器返回json格式数据
+                    type: 'post', //HTTP请求类型
+                    timeout: 10000, //超时时间设置为10秒；
+                    beforeSend: function(request) {
+                        request.setRequestHeader("X-Token",'aa27f609-65ec-4757-811b-d2805af1b198');
+                    },
+                    success: function(ajaxData) {
+                        //服务器返回响应，根据响应结果，分析是否成功；
+                        //alert(JSON.stringify(ajaxData));
+                        if(ajaxData !== '' && ajaxData !== 'null'){
+                            //mui.toast(ajaxData.meta.message);
+                            mui.openWindow({
+                                url:ajaxData.data,
+                                id:ajaxData.data,
+                                extras:{}
+                            });
+                        }else{
+                            //mui.toast(ajaxData.meta.message);
+                            mui.alert('<a class="maincolor">支付请求不成功，请重试</a>','提示','知道了',null,'div');
+                        }
+                    },
+                    error: function(xhr, type, errorThrown) {
+                        //异常处理；
+                        console.log(type);
+                        mui.toast('网络异常，请稍后再试');
+                    }
+                });
+            } else {
+                //mui.toast(ajaxData.meta.message);
+                mui.alert('<a class="maincolor">支付请求不成功，请重试</a>', '提示', '知道了', null, 'div');
+            }
+        },
+        error: function (xhr, type, errorThrown) {
+            //异常处理；
+            console.log(type);
+            mui.toast('网络异常，请稍后再试');
+        }
+    });
+
+    function weixinPay1(amount,userid,id,sitefcode,orderid,foreid,foretype,xtoken){
+        mui.ajax(config.httpPath+'api/Broadband/toPay_wx', {
+            data: {
+                amount:amount,
+                userId:userid,
+                id:id,
+                siteCode:sitefcode ,
+                orderId:orderid,
+                foreignId: foreid,
+                foreignType:foretype
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            beforeSend: function(request) {
+                request.setRequestHeader("X-Token",xtoken);
+            },
+            success: function(ajaxData) {
+                //服务器返回响应，根据响应结果，分析是否成功；
+                //alert(JSON.stringify(ajaxData));
+                if(ajaxData !== '' && ajaxData !== 'null'){
+                    //mui.toast(ajaxData.meta.message);
+                    mui.openWindow({
+                        url:ajaxData.data,
+                        id:ajaxData.data,
+                        extras:{}
+                    });
+                }else{
+                    //mui.toast(ajaxData.meta.message);
+                    mui.alert('<a class="maincolor">支付请求不成功，请重试</a>','提示','知道了',null,'div');
+                }
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                console.log(type);
+                mui.toast('网络异常，请稍后再试');
+            }
+        });
+    };
+    function appPay1(amount,userid,id,sitefcode,orderid,foreid,foretype,xtoken){
+        startWXPAY();
+        function startWXPAY()
+        {
+            //调用pay()方法 发起支付即可
+            pay();
+            //定义支付通道
+            var channel = null;
+            //获取支付通道
+            getChannels();
+            //获取支付通道的方法
+            function getChannels() {
+                if(window.plus){
+                    plus.payment.getChannels(function(channels) {
+                        for (var i = 0; i < channels.length; i++) {
+                            if (channels[i].id == "wxpay") {
+                                channel = channels[i];
+                                plus.ui.toast("等待微信支付中");
+                            }
+                        }
+                    }, function(e) {
+                        plus.ui.toast("获取支付通道失败!");
+                    });
+                }else{
+                    mui.toast('需手机APP才能支付');
+                }
+            }
+            //发起微信支付请求的方法
+            function pay() {
+                //获取微信支付参数的url
+                 mui.ajax(config.httpPath+'api/Broadband/toPay', {
+                    data: {
+                        amount:amount,
+                        userId:userid,
+                        id:id,
+                        siteCode:sitefcode,
+                        orderId:orderid,
+                        foreignId: foreid,
+                        foreignType:foretype
+                    },
+                    dataType: 'json', //服务器返回json格式数据
+                    type: 'post', //HTTP请求类型
+                    timeout: 10000, //超时时间设置为10秒；
+                    beforeSend: function(request) {
+                        request.setRequestHeader("X-Token",xtoken);
+                    },
+                    success: ajax_success_callback,
+                    error: ajax_error_callback
+                });
+                //获取微信支付参数成功的回调函数
+                function ajax_success_callback(resObj) {
+                    if (window.plus){
+                        var res_str = JSON.stringify(resObj);
+                        //用返回参数 发起微信支付请求
+                        //alert('1212'+res_str);
+                        plus.payment.request(channel, res_str, wxpay_success, wxpay_error);
+                    }else{
+                        mui.toast('需手机APP才能支付，ajax');
+                    }
+                }
+                //获取微信支付参数失败的回调函数
+                function ajax_error_callback(e) {
+                    plus.ui.alert("ajax获取参数失败");
+                }
+                //微信支付成功回调
+                function wxpay_success(result) {
+                    var timestamp=new Date().getTime();
+                    //alert(location.origin+'/mobileApp/html-kuanDaiPay/payList.html?timestamp=');
+//            window.location.href = location.origin+"/order/payFinish/"+${order.id}+"?timestamp="+timestamp;
+//                        window.location.href = location.origin+'/mobileApp/html-kuanDaiPay/payList.html?timestamp='+timestamp+'&&orderId='+orderId;
+                    mui.openWindow({
+                        url:location.origin+'/mobileApp/html-kuanDaiPay/payList.html?timestamp='+timestamp+'&&orderId='+orderId,
+                        id:'payList.html'+"?time="+new Date().getTime(),
+                        extras:{}
+                    });
+                }
+                //微信支付失败回调
+                function wxpay_error(error) {
+                    plus.ui.alert("支付失败!");
+                }
+            }
+        }
+    }
+</script>
+
+</html>

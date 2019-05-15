@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>验证身份证</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color:#999999;font-size: 0.24rem;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:#999999;font-size: 0.24rem;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:#999999;font-size: 0.24rem;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:#999999;font-size: 0.24rem;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">验证身份证</h1>
+</header>
+<div class="mui-content">
+    <ul class="margintop-20px" style="padding: 20px;">
+        <li>
+            <div class="mui-input-row" style="background-color: #ffffff;">
+                <label style="width: 15%;margin-top: 5px;">
+                    <span class=" mui-pull-left iconfont icon-ren"></span>
+                </label>
+                <input id="realName" type="text" class="font16" style="width: 85%;height: 46px;"  placeholder="请输入真实姓名">
+            </div>
+        </li>
+        <li class="maincolor font14 margintop-10px">
+            请先验证身份
+        </li>
+        <li  class="margintop-10px">
+            <div class="mui-input-row" style="background-color: #ffffff;">
+                <label style="width: 15%;margin-top: 5px;">
+                    <span class=" mui-pull-left iconfont icon-shenfengzheng4"></span>
+                </label>
+                <input id="IDcard" type="text" class="font16" style="width: 85%;height: 46px;"  placeholder="请输入身份证号码">
+            </div>
+        </li>
+        <li id="tips" class="maincolor font14 display-none paddingbottom5 margintop-10px">*身份证号错误</li>
+        <li  class="margintop-20px">
+            <button id="submit" type="button" class="mui-btn horbackground mui-btn-outlined whitecolor font18 btn">
+                认证
+            </button>
+        </li>
+    </ul>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/biz/verifyIDcard.js"></script>
+</body>
+</html>

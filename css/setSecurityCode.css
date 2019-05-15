@@ -1,0 +1,12 @@
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:#999999;font-size: 0.24rem;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#999999;font-size: 0.24rem;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#999999;font-size: 0.24rem;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#999999;font-size: 0.24rem;
+}

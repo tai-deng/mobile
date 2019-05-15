@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<a href="javascript:location.href = 'a1.html';" class="a1">跳到a1</a>
+
+
+<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init();
+    mui.plusReady(function() {
+        alert('1');
+//              var self=plus.webview.currentWebview();
+//              console.log(JSON.stringify(self));
+        mui("body").on("tap", ".a1", function() {
+            mui.openWindow({
+                url: "a1.html",
+                id: "a1"
+            });
+        })
+    });
+</script>
+</body>
+
+</html>

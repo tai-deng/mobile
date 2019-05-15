@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置用户名</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color:#999999;font-size: 0.24rem;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:#999999;font-size: 0.24rem;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:#999999;font-size: 0.24rem;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:#999999;font-size: 0.24rem;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">设置用户名</h1>
+</header>
+<div class="mui-content">
+    <ul class="margintop-20px" style="padding: 20px;">
+        <li class="margintop-10px">
+            <!--<input type="text">-->
+            <input id='username' type="text" class="mui-input-clear mui-input" maxlength="20"
+                   placeholder="请输入用户名" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;">
+        </li>
+        <li class="graycolor font12">用户名仅支持中英文、数字和下划线且不能为纯数字</li>
+        <li class="maincolor font14">设置后可做登录账号使用</li>
+        <li class="margintop-20px">
+            <button id="submit" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font18 btn">
+                保 存
+            </button>
+        </li>
+    </ul>
+
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/biz/setUsername.js"></script>
+</body>
+</html>

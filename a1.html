@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="css/mui.min.css" rel="stylesheet" />
+</head>
+
+<body>
+<a href="javascript:void(0)" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left">返回刷新</a>
+
+<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init()
+    mui.plusReady(function() {
+
+        var self=plus.webview.currentWebview();
+        var opener = self.opener();
+        alert(opener.id);
+//              console.log(JSON.stringify(self));
+        var old_back = mui.back;
+        mui.back = function() {
+            var wobj = plus.webview.getWebviewById(opener.id);
+            wobj.reload(true);
+            old_back();
+        }
+    });
+</script>
+</body>
+
+</html>

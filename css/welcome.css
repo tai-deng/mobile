@@ -1,0 +1,39 @@
+/*/!*6*!/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    .height6{height: 7.25rem;}}
+
+/!*6+*!/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    .height6{height: 7.9rem;}}
+
+/!*魅族*!/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){
+    .height6{height: 7.25rem;}}
+
+/!*mate7*!/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){
+    .height6{height: 7.25rem;}}
+.height6{height: 7.25rem;}*/
+#tiaoguo{
+    position: fixed; top: 0.3rem; right: 0.3rem; z-index: 999;
+}
+#big{
+    margin-top: 0px;border-bottom: 1px solid #dddddd;
+}
+.sliderdiv{
+    background-color: inherit;height: 50%;
+}
+.phonediv{
+    position: fixed;bottom: 22%;width: 100%; z-index: 99;
+}
+.sliderdot{
+    position: fixed;bottom:0.1rem;width: 70%;margin-left: 15%; z-index: 5;
+}
+#useNow{
+    margin: auto;line-height: 40px;width: 70%;border-radius: 20px;
+}
+body{
+    background-color: #ffffff;
+}
+
+

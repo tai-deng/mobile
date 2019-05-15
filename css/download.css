@@ -1,0 +1,74 @@
+body{
+    background-image: url("../img/page.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: auto;
+    position:relative;
+    overflow-y:hidden;
+}
+.hidden{
+    overflow: hidden;
+    overflow-y: hidden;
+}
+.down-yindao{
+    position: fixed;
+    top: 0px;left: 0px;
+    background-color: #000000;
+    width: 100%;
+    z-index: 2;
+    opacity:0.8;
+}
+.down-logo{
+    width: 70%;
+    margin-top: 8%;
+}
+.down-tips{
+    width: 60%;
+}
+.down-phone{
+    width: 75%;
+}
+.down-bottom-img{
+    width: 100%;
+}
+.down-part{
+    position: fixed;
+    bottom: -5px;
+}
+.down-iphone{
+    position: fixed;
+    bottom: 18%;
+    width: 100%;
+}
+.down-android{
+    position: fixed;
+    bottom: 8%;
+    width: 100%;
+}
+.down-whitebtn{
+    background-color: #ffffff;
+    width: 70%;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+}
+.down-orangebtn{
+    background-color: #ff5800;
+    width: 70%;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+}
+.float-left{
+    float: left;
+}
+.down-ip-img{
+    height: 30px;margin-top: 5px;
+    margin-left: 15%;
+}
+.down-ip-text{
+    line-height: 40px;
+    margin-top: -50px;
+}

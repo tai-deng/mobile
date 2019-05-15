@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>更多服务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/mui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/appIndex.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+    <style>
+        .mui-search .mui-placeholder {
+            font-size: 12px;
+            /* line-height: 34px; */
+            position: absolute;
+            z-index: 1;
+            top: 5px;;
+
+        }
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color:    #A9A9A9 !important;
+            font-size:0.26rem !important;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:    #A9A9A9 !important;
+            opacity:  1;
+            font-size:0.26rem !important;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:    #A9A9A9 !important;
+            opacity:  1;
+            font-size:0.26rem !important;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color:    #A9A9A9 !important;
+            font-size:0.26rem !important;
+        }
+        .shadow{
+            box-shadow: 0px 3px 3px #dddddd;
+        }
+
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">更多服务</h1>
+</header>
+<div class="mui-content">
+    <!--搜索第一版先不用-->
+    <!--<div class="padding-10 bacfff ">
+        <ul class="orangeborder bac8f5" style="border-radius: 20px;overflow: hidden;height: 40px;line-height: 38px;">
+            <li class="float-left paddingleft10px">
+                <span class="iconfont icon-sousuo maincolor"></span>
+            </li>
+            <li class="float-left" style="width: 70%;">
+                <input type="text" style="border: none;" class="bac8f5 graycolor font14" placeholder="请输入您需要查找的服务" >
+            </li>
+            <li class="float-right padding-0-10px pa horbackground whitecolor font14">&nbsp;搜 索&nbsp;</li>
+            <div style="clear: both;"></div>
+        </ul>
+    </div>-->
+
+    <!--九宫格-->
+    <div id="Gallery" class="mui-slider bacfff ">
+        <li class="list1 mui-table-view-cell baceee shadow">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <span class="mui-icon iconfont icon-yingyong mui-active">&nbsp;</span><span id="classify_one">个性服务</span>
+                </div>
+            </div>
+        </li>
+        <div class="list1 mui-slider-group">
+            <div class="mui-slider-item">
+                <ul id="itServices" class="mui-table-view mui-grid-view mui-grid-9">
+                </ul>
+            </div>
+        </div>
+        <li class="list2 mui-table-view-cell baceee shadow">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <span class="mui-icon iconfont icon-yingyong mui-active">&nbsp;</span><span id="classify_two">教学教务</span>
+                </div>
+            </div>
+        </li>
+        <div class="list2 mui-slider-group">
+            <div class="mui-slider-item">
+                <ul id="jxServices" class="grayborder mui-table-view mui-grid-view mui-grid-9">
+                </ul>
+            </div>
+        </div>
+        <li class="list3 mui-table-view-cell baceee shadow">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <span class="mui-icon iconfont icon-yingyong mui-active">&nbsp;</span><span id="classify_three"></span>
+                </div>
+            </div>
+        </li>
+        <div class="list3 mui-slider-group">
+            <div class="mui-slider-item">
+                <ul id="hqServices" class="grayborder mui-table-view mui-grid-view mui-grid-9">
+                </ul>
+            </div>
+        </div>
+        <li class="list4 mui-table-view-cell baceee shadow">
+            <div class="mui-slider-cell">
+                <div class="oa-contact-cell mui-table maincolor">
+                    <span class="mui-icon iconfont icon-yingyong mui-active">&nbsp;</span><span id="classify_four"></span>
+                </div>
+            </div>
+        </li>
+        <div class="list4 mui-slider-group">
+            <div class="mui-slider-item">
+                <ul id="xzServices" class="grayborder mui-table-view mui-grid-view mui-grid-9">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script id="list1Temp" type="text/html">
+    {{each sortFcodeMap.IT服务 as list index}}
+    <li data-id="{{list.modelkey}}" class="office_list mui-table-view-cell  mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+        <a href="#">
+            <div class="card-middle
+            {{if index %2 == 0 && index %4 ==0}} horbackred{{else if index %3 == 0 && index %6 == 0}} horbackyellow {{else if index %2 ==0}} horbackgreen
+            {{else if index %5 == 0}} horbackblue {{else if index %3 ==0}} horbackpure {{else}} horbackground{{/if}}">
+                <i class=" mui-icon iconfont {{list.icon}} whitecolor card-png"></i>
+            </div>
+            <div class="mui-media-body font12">{{list.modelname}}</div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script id="list2Temp" type="text/html">
+    {{each sortFcodeMap.教学教务 as list index}}
+    <li data-id="{{list.modelkey}}" class="office_list mui-table-view-cell  mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+        <a href="#">
+            <div class="card-middle
+            {{if index %2 == 0 && index %4 ==0}} horbackblue{{else if index %3 == 0 && index %6 == 0}} horbackpure {{else if index %2 ==0}} horbackgreen
+            {{else if index %5 == 0}} horbackred {{else if index %3 ==0}} horbackyellow {{else}} horbackground{{/if}}">
+                <i class=" mui-icon iconfont {{list.icon}} whitecolor card-png"></i>
+            </div>
+            <div class="mui-media-body font12">{{list.modelname}}</div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script id="list3Temp" type="text/html">
+    {{each sortFcodeMap.后勤生活 as list index}}
+    <li data-id="{{list.modelkey}}" class="office_list mui-table-view-cell  mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+        <a href="#">
+            <div class="card-middle
+            {{if index %2 == 0 && index %4 ==0}} horbackground{{else if index %3 == 0 && index %6 == 0}} horbackyellow {{else if index %2 ==0}} horbackgreen
+            {{else if index %5 == 0}} horbackblue {{else if index %3==0}} horbackpure {{else}} horbackred{{/if}}">
+                <i class=" mui-icon iconfont {{list.icon}} whitecolor card-png"></i>
+            </div>
+            <div class="mui-media-body font12">{{list.modelname}}</div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script id="list4Temp" type="text/html">
+    {{each sortFcodeMap.行政科研 as list index}}
+    <li data-id="{{list.modelkey}}" class="office_list mui-table-view-cell  mui-media mui-col-xs-3 mui-col-sm-3 padding-0-10px">
+        <a href="#">
+            <div class="card-middle
+            {{if index %2 == 0 && index %4 ==0}} horbackgreen{{else if index %3 == 0 && index %6 == 0}} horbackyellow {{else if index %2 ==0}} horbackground
+            {{else if index %5 == 0}} horbackblue {{else if index %3 ==0 }} horbackpure {{else}} horbackred{{/if}}">
+                <i class=" mui-icon iconfont {{list.icon}} whitecolor card-png"></i>
+            </div>
+            <div class="mui-media-body font12">{{list.modelname}}</div>
+        </a>
+    </li>
+    {{/each}}
+</script>
+<script src="js/mui.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/config.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/biz/officeHall.js"></script>
+</body>
+</html>

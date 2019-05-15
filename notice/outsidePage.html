@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通知内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/appIndex.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        body{
+            background-color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground" >
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">通知内容</h1>
+</header>
+<div class="mui-content">
+    <!--<iframe></iframe>-->
+    <iframe id="iframe" src="" style="width: 100%;margin: 0px;border: none;"></iframe>
+</div>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<!--<script src="../js/biz/noticeContent.js"></script>-->
+<script>
+    (function(mui, doc) {
+        mui.init();
+        var height = window.screen.availHeight;
+        $("#iframe").height(height - 50);
+        var url = new Uri(location.href).getQueryParamValue('url');
+        $("#iframe").attr('src', url);
+    }(mui, document));
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,55 @@
+
+/*Ыљга*/
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .touxiang{
+        position: absolute;left: 38%;top:25%;
+    }
+    .circularlandscape{
+        display:inline-block;
+        width:100px;
+        height:100px;
+        overflow:hidden;
+        border-radius:50%;
+    }
+
+}
+/* iphone5 */
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    .touxiang{
+        position: absolute;left: 35%;top:20%;
+    }
+    .circularlandscape{
+        display:inline-block;
+        width:100px;
+        height:100px;
+        overflow:hidden;
+        border-radius:50%;
+    }
+
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    .touxiang{
+        position: absolute;left: 38%;top:25%;
+    }
+    .circularlandscape{
+        display:inline-block;
+        width:100px;
+        height:100px;
+        overflow:hidden;
+        border-radius:50%;
+    }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    .touxiang{
+        position: absolute;left: 40%;top:25%;
+    }
+    .circularlandscape{
+        display:inline-block;
+        width:100px;
+        height:100px;
+        overflow:hidden;
+        border-radius:50%;
+    }
+}

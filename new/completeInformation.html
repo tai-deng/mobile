@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>完善以下资料</title>
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .mui-input-row label {
+            width: 30%;
+        }
+        .mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
+            width: 65%;
+            margin-right: 5%;
+        }
+        .down-pull {
+            position: absolute;
+            top: 8px;
+            line-height: 37px;
+            right: 20px;
+        }
+        .margin-top10 {
+            margin-top: 10px;
+        }
+    </style>
+    </head>
+<body id="body">
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">完善以下资料</h1>
+</header>
+<div class="mui-content">
+    <div class="maincolor font12 padding-10 bachui">温馨提示：请准确填写您的真实资料！如未开通宽带账号，请记住您的宽带用户名。<br/>
+        湘中幼儿师范高等专科学校：<span style="color: red;">宽带账号填写身份证号码</span></div>
+    <ul class="bacfff font14 gray-8color">
+        <li class=" mui-input-row height-auto padding-top10px">
+            <label class=" mui-text-right lineheight-25px">学校名称：</label>
+            <select name="select" id="select_k1" class="width50 grayborder padding-left-right10px">
+                <option value="0" class="graycolor">请选择你所在的学校</option>
+            </select>
+            <span class="iconfont icon-xiala down-pull"></span>
+        </li>
+        <li class=" mui-input-row height-auto padding-top10px">
+            <label class=" mui-text-right lineheight-25px">宽带账号：</label>
+            <input id="duixiang" class="width50 lineheight-25px height-auto grayborder padding-left-right10px" style="font-size: 14px;" type="text" placeholder="请输入学号">
+        </li>
+        <li class=" mui-input-row height-auto padding-top10px">
+            <label class=" mui-text-right lineheight-25px">真实姓名：</label>
+            <input id="realname" class="width50 lineheight-25px height-auto grayborder padding-left-right10px" style="font-size: 14px;" type="text" placeholder="请输入真实姓名">
+        </li>
+        <li class=" mui-input-row height-auto padding-top10px">
+            <label class=" mui-text-right lineheight-25px">院系：</label>
+            <select name="select" id="select_k2" class="width50 grayborder padding-left-right10px" >
+                <option value="0" class="graycolor">请选择你所在的院系</option>
+            </select>
+            <span class="iconfont icon-xiala down-pull"></span>
+        </li>
+        <li class=" mui-input-row height-auto padding-top10px">
+            <label class=" mui-text-right lineheight-25px">班级：</label>
+            <select name="select" id="select_k3" class="width50 grayborder padding-left-right10px">
+                <option value="0" class="graycolor">请选择你所在的班级</option>
+            </select>
+            <span class="iconfont icon-xiala down-pull"></span>
+        </li>
+        <li class="padding-10 margintop-20px">
+            <button id='submit' class="mui-btn mui-btn-block  whitecolor horbackground ridus17px font18">确定</button>
+        </li>
+    </ul>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/new/completeInformation.js"></script>-->
+<script>
+    document.write('<script src="../js/new/completeInformation.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>
+
+
+

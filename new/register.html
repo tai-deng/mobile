@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>注册页</title>
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../css/app.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .mui-input-row label {
+            line-height: 1.2;
+            float: left;
+            width: 20%;
+            padding: 11px 15px;
+        }
+        .mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
+            float: right;
+            width: 80%;
+        }
+        .mui-content{margin-top: 0px !important;}
+        #cnzz_stat_icon_1265107497 {display: none;}
+    </style>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1265107497'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1265107497' type='text/javascript'%3E%3C/script%3E"));</script>
+</head>
+<body id="body">
+<!--<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title whitecolor font18">登录</h1>
+</header>-->
+<div class="mui-content">
+    <ul class="mui-text-center" style="margin-top: 15%;">
+        <li><img src="../img/logo-12.png" style="width: 20%;"/></li>
+        <li><img src="../img/logo-text.png" style="width: 50%;padding-top: 10px;"/></li>
+    </ul>
+    <!--<form id='login-form' class="orangeborder" style="margin: 8% 15px 0px 15px;border-radius: 5px;">-->
+    <div class="mui-input-row line60 gray-8color grayborder1 ridus30px" style="margin: 8% 15px 0px 15px;">
+        <label>
+            <span class="mui-icon iconfont icon-xingming font26"></span>
+        </label>
+        <input id='account' maxlength="11" type="text" class="mui-input-clear font14 mui-input line60 new-input" placeholder="请输入手机号">
+    </div>
+    <div class="mui-input-row line60 gray-8color grayborder1 ridus30px" style="margin: 10px 15px 0px 15px;">
+            <label>
+                <span class="mui-icon iconfont icon-mima54 font26"></span>
+            </label>
+            <input id='password' type="password" onpaste="return false" ondragenter="return false" onkeyup="value=value.replace(/[\W]/g,'')" class="mui-input-clear mui-input font14 line60 new-input" placeholder="设置登录密码" >
+    </div>
+    <div class="mui-input-row line60 gray-8color grayborder1 ridus30px" style="margin: 10px 15px 0px 15px;">
+        <label style="float: right !important;" class="width20">
+            <button id="getCode" class="grayborder bacddd whitecolor mui-btn-outlined font14 padding-10 ridus17px line15">获取验证码</button>
+        </label>
+        <input id='password1' type="number" class="mui-input-clear mui-input font14 line60 width60 new-input mui-text-center" placeholder="请输入手机验证码" >
+    </div>
+    <div class="mui-input-row padding-10 font14 gray-8color">温馨提示：密码需字母+数字组合，至少6位组成，区分大小写！</div>
+    <div class="mui-content-padded margintop-20px padding-top10 ">
+        <button id='register' class="mui-btn mui-btn-block line60 whitecolor horbackground ridus30px font20">立即注册</button>
+    </div>
+    <div id='loadNow' class="mui-text-center width100 gray-8color font14 margintop-20px">已有账号？<b class="font16">立即登录</b></div>
+    <!--style="position: absolute;bottom: 10px;"-->
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/new/register.js"></script>-->
+<script>
+    document.write('<script src="../js/new/register.js?time='+new Date().getTime()+'" type="text/javascript">'+'<'+'/script>');
+</script>
+</body>
+</html>
+
+
+

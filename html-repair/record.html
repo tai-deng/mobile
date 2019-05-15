@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>业务办理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../css/businessHanding.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+</head>
+<body>
+<style>
+    .mui-search:before
+    {
+        top: 25%;
+    }
+    option:hover{
+        background-color: #ff5800 !important;
+        color: #ffffff;
+    }
+    .option{
+        border: none !important;
+    }
+</style>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">报修记录</h1>
+</header>
+<div class="mui-content">
+    <ul id="goRepair" class="bacfff shadow card-middle repair_fixed">
+        <li class="">
+            <span class="iconfont icon-baoxiu maincolor card-png2"></span>
+            <span class="font12 maincolor repair_fixed_text">报修</span>
+        </li>
+    </ul>
+    <div id="slider" class="mui-slider">
+        <!--<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="bacfff margin10px ridus5 maincolor" style="overflow: hidden;">
+                <a id="applyBusiness" class="mui-control-item" href="#item1mobile">
+                    我申请的业务
+                </a>
+                <a id="acceptBusiness" class="mui-control-item" href="#item2mobile">
+                    我受理的业务
+                </a>
+            </div>
+        </div>-->
+        <div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <a class="mui-control-item" href="#item1mobile">
+                全部
+            </a>
+            <a class="mui-control-item" href="#item2mobile">
+                待处理
+            </a>
+            <a class="mui-control-item" href="#item3mobile">
+                处理中
+            </a>
+            <a class="mui-control-item" href="#item4mobile">
+                已完成
+            </a>
+            <a class="mui-control-item" href="#item5mobile">
+                已关闭
+            </a>
+        </div>
+        <div class="mui-slider-group">
+            <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                <!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper" data-pullrefresh="1">-->
+                    <div id="scroll1" class="mui-scroll-wrapper" >
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view bachui" id="myApplyTemp">
+                                <!--<ul class="mui-table-view margintop-10px" style="border-bottom: 1px solid #dddddd;">
+                                    <li class="mui-table-view-cell font16" style="padding: 0px 10px;">
+                                        <div class="mui-input-row mui-left">
+                                            <input class="display-none" style="width: auto;margin-top: 13px; float: left;position: absolute;" name="checkbox" value="Item 1" type="checkbox" >
+                                            <label style="width: 100%;">
+                                                <span class="float-left">"报修报检"申请</span>
+                                                <span class="float-right maincolor">待审批</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="mui-table-view-cell graycolor font14" style="padding-left: 30px;">
+                                        <div>申请时间：2015-02-24 15:00</div>
+                                        <div>办理部门：张小泉</div>
+                                        <div></div>
+                                    </li>
+                                </ul>-->
+                                <li class="mui-table-view-cell mui-media bacfff marginbottom-10px" style="padding:0px 0px !important;">
+                                    <div class="padding-10">
+                                        <span class=" mui-pull-left mui-icon iconfont icon-bianhao mui-active"></span>
+                                        <div class="mui-text-left float-left">订单编号：</div>
+                                        <div id="nation" class="mui-text-right graycolor" >已完成</div>
+                                    </div>
+                                    <div class="bachui padding-10">
+                                        <img class="mui-media-object mui-pull-left margintop-5px" src="../img/jiaoxue.png">
+                                        <div class="mui-media-body font14 padding-top-bottom15px">
+                                            <span id="servicethree">故障物品：<span class="">水龙头</span></span>
+                                            <div style="clear: both;"></div>
+                                            <div class="float-left margintop-5px">
+                                                <p class='mui-ellipsis-2 font14'><span id="1" class="blackfont">故障描述：</span>
+                                                    <span >床板坏了，没法睡觉了。船板坏了，没法睡觉了床板坏了，没法睡觉了。船板坏了，没法睡觉了</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                    <div class="float-left padding-top-left10 ">
+                                        <p class='mui-ellipsis font12'><span >订单已完成</span></p>
+                                        <p class='mui-ellipsis font12'>2017-06-25 17:56:05</p>
+                                    </div>
+                                    <div class="float-right padding-top-right10">
+                                        <button id="btn1" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font14 btn float-right"
+                                                style="line-height: 20px;">
+                                            撤回
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <div id="applyDelete" style="width: 100%;position: fixed;bottom: 50px;z-index: 999;"
+                     class="bulkdelete whitecolor display-none ridus5 horbackground mui-text-center padding-5" >
+                    批量审批
+                </div>
+                <!--</div>-->
+            </div>
+            <div id="item2mobile" class="mui-slider-item mui-control-content">
+                <div id="scroll2" class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <div class="mui-loading">
+                            <div class="mui-spinner">
+                            </div>
+                        </div>
+                        <div id="myAcceptTemp">
+
+                        </div>
+                        <!--<div id="acceptDelete" style="width: 50%;margin: 20px auto;" class="bulkdelete whitecolor display-none ridus5 horbackground mui-text-center padding-5" >
+                            批量删除
+                        </div>-->
+                    </div>
+                </div>
+                <div id="acceptDelete" style="width: 100%;position: fixed;bottom: 50px;z-index: 999;"
+                     class="bulkdelete whitecolor display-none ridus5 horbackground mui-text-center padding-5" >
+                    批量审批
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="listTemp" type="text/html">
+    <li class="mui-table-view-cell mui-media bacfff marginbottom-10px" style="padding:0px 0px !important;">
+        <div class="padding-10">
+            <span class=" mui-pull-left mui-icon iconfont icon-bianhao mui-active"></span>
+            <div class="mui-text-left float-left">订单编号：</div>
+            <div id="nation" class="mui-text-right graycolor" >已完成</div>
+        </div>
+        <div class="bachui padding-10">
+            <img class="mui-media-object mui-pull-left margintop-5px" src="../img/jiaoxue.png">
+            <div class="mui-media-body font14 padding-top-bottom15px">
+                <span id="servicethree">故障物品：<span class="">水龙头</span></span>
+                <div style="clear: both;"></div>
+                <div class="float-left margintop-5px">
+                    <p class='mui-ellipsis-2 font14'><span id="1" class="blackfont">故障描述：</span>
+                        <span >床板坏了，没法睡觉了。船板坏了，没法睡觉了床板坏了，没法睡觉了。船板坏了，没法睡觉了</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div class="float-left padding-top-left10 ">
+            <p class='mui-ellipsis font12'><span >订单已完成</span></p>
+            <p class='mui-ellipsis font12'>2017-06-25 17:56:05</p>
+        </div>
+        <div class="float-right padding-top-right10">
+            <button id="btn1" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font14 btn float-right"
+                    style="line-height: 20px;">
+                撤回
+            </button>
+        </div>
+    </li>
+</script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/mui.picker.min.js"></script>-->
+<script src="../js/mui.pullToRefresh.js"></script>
+<script src="../js/mui.pullToRefresh.material.js"></script>
+<script src="../js/biz/record.js"></script>
+<script>
+    mui.init({
+        swipeBack: false
+    });
+</script>
+
+</body>
+</html>

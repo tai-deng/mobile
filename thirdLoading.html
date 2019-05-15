@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>绑定账户</title>
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+    <style>
+        .mui-input-row label {
+            line-height: 1.2;
+            float: left;
+            width: 25%;
+            padding: 11px 15px;
+        }
+    </style>
+</head>
+<body id="body" style="background:url('img/bj.jpg'); background-repeat: no-repeat;background-size:100% 100%;">
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">绑定账户</h1>
+</header>
+<div class="mui-content">
+    <ul class="mui-text-center" style="padding-top: 15%;">
+        <li><img src="img/logo-login.png" style="width: 70%;"/></li>
+    </ul>
+    <form id='login-form' class="orangeborder" style="margin: 15% 15px 0px 15px;border-radius: 5px;">
+        <div class="mui-input-row line60 whitecolor orangrborder-bottom">
+            <label>
+                <!--<img src="img/number.png" style="height: 30px;"/>-->
+                <span class="mui-icon iconfont icon-wode font26"></span>
+            </label>
+            <input id='account' type="text" class="mui-input-clear  mui-input line60 new-input" placeholder="请输入手机号">
+        </div>
+        <div class="mui-input-row line60 whitecolor">
+            <label>
+                <!--<img src="img/password.png" style="height: 30px;">-->
+                <span class="mui-icon iconfont icon-mima font26"></span>
+            </label>
+            <input id='password' type="password" class="mui-input-clear mui-input line60 new-input" placeholder="请输入密码" >
+        </div>
+    </form>
+    <div class="font12 whitecolor" style="margin: 3% 15px 0px 15px;">
+        注:为了您的账户安全，请先输入账号密码确认绑定<!--QQ或-->微信
+    </div>
+    <!--<form class="font14 whitecolor" style="margin: 5% 10px;">
+        <div class="mui-input-row float-left">
+            <input id="rememberPassword" class="load-check" name="checkbox" value="Item 1" type="checkbox" >
+            <label class="load-check-text">记住密码</label>
+        </div>
+        <div class="mui-input-row float-left" style="margin-left: 30px;">
+            <input id="autologin" class="load-check" name="checkbox" value="Item 1" type="checkbox" >
+            <label class="load-check-text">自动登录</label>
+        </div>
+<div style="clear: both"></div>
+    </form>-->
+    <div class="mui-content-padded margintop-20px padding-top10">
+        <button id='bind' class="mui-btn mui-btn-block maincolor background ridus5 font18">确认绑定</button>
+        <button id='back' class="mui-btn mui-btn-block maincolor background ridus5 font18">返 回</button>
+    </div>
+</div>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/URI.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/core.js"></script>
+<script src="js/cipher-core.js"></script>
+<script src="js/mode-ecb.js"></script>
+<script src="js/tripledes.js"></script>
+<script src="js/config.js"></script>
+<script>
+    mui.plusReady(function() {
+        //获取个推需要的客户端ID
+        clientid = plus.push.getClientInfo().clientid;
+        //alert(clientid);
+        plus.oauth.getServices(function(services) {
+            auths = services;
+        }, function(e) {
+            alert("获取登录服务列表失败：" + e.message + " - " + e.code);
+        });
+        //plus.webview.currentWebview().setStyle( {statusbar:{background:'#dddddd'},top:0,bottom: 0} );
+    })
+    var type = new Uri(location.href).getQueryParamValue('type');
+//    alert(type);
+    var height = window.screen.height;
+    document.getElementsByTagName('body')[0].style.minHeight = window.innerHeight-50+'px';
+    var account,password;
+    //点击绑定
+    mui(".mui-content").on('tap','#bind',function(){
+        //得到用户输入的信息
+        account = $('#account').val();
+        password = $('#password').val();
+//        alert(account +"-----"+ password);
+        if(account != "" && password != ""){
+            load();
+        }else{
+            //mui.alert('用户名或者密码不能为空');
+            mui.alert('用户名或者密码不能为空','提示','确定',null,'div');
+        }
+    });
+    //点击返回
+    mui(".mui-content").on('tap','#back',function(){
+       mui.back();
+    });
+
+    //登录接口
+    function load(){
+        /*account = $('#account').val();
+         password = $('#password').val();*/
+        mui.ajax(config.httpPath+'api/dologin', {
+            data: {
+                userName:encryptByDES(account,keyValue),
+                passWord:encryptByDES(password,keyValue)
+            },
+            dataType: 'json', //服务器返回json格式数据
+            type: 'post', //HTTP请求类型
+            timeout: 10000, //超时时间设置为10秒；
+            success: function(ajaxData) {
+                //服务器返回响应，根据响应结果，分析是否成功；
+                //alert(JSON.stringify(ajaxData));
+                if(ajaxData.meta.success === false){
+                    //mui.alert("用户名或者密码错误");
+                    mui.alert('用户名或者密码错误','提示','确定',null,'div');
+                }else{
+                    var qq,weixin,weibo;
+                    if(ajaxData.data.qqOpenID == null){
+                        qq = 'false';
+                    }else{
+                        qq = 'true';
+                    }
+                    if(ajaxData.data.weChatOpenID == null){
+                        weixin = 'false';
+                    }else{
+                        weixin = 'true';
+                    }
+                    if(ajaxData.data.blogOpenID == null){
+                        weibo = 'false';
+                    }else{
+                        weibo = 'true';
+                    }
+                    localStorage.setItem("qq",qq);
+                    localStorage.setItem("weixin",weixin);
+                    localStorage.setItem("weibo",weibo);
+                    localStorage.setItem("userName",account);
+                    localStorage.setItem("passWord",password);
+                    /*localStorage.setItem("token",ajaxData.data.xtoken);
+                    localStorage.setItem("mobileno",ajaxData.data.mobileno);
+                    localStorage.setItem("realname",ajaxData.data.realname,keyValue);
+                    localStorage.setItem("fcode",ajaxData.data.fcode,keyValue);
+                    localStorage.setItem("id",ajaxData.data.id,keyValue);
+                    localStorage.setItem("userType",ajaxData.data.userType);*/
+                    localStorage.setItem("token",decryptByDES(ajaxData.data.xtoken,keyValue));
+                    localStorage.setItem("mobileno",decryptByDES(ajaxData.data.mobileno,keyValue));
+//                    localStorage.setItem("realname",decryptByDES(ajaxData.data.realname,keyValue));
+                    localStorage.setItem("fcode",decryptByDES(ajaxData.data.fcode,keyValue));
+                    localStorage.setItem("id",decryptByDES(ajaxData.data.id,keyValue));
+                    localStorage.setItem("userType",decryptByDES(ajaxData.data.userType,keyValue));
+                    localStorage.setItem("clientid",clientid);
+                    window.localStorage.setItem("autologin","true");
+                    window.localStorage.setItem("US_NAME", account);
+                    window.localStorage.setItem("US_PWD", password);
+                    mui.ajax(config.httpPath+'api/bindAlias', {
+                        data: {
+                            id:localStorage.getItem('id'),
+                            cid:clientid
+                        },
+                        dataType: 'json', //服务器返回json格式数据
+                        type: 'post', //HTTP请求类型
+                        timeout: 10000, //超时时间设置为10秒；
+                        beforeSend: function(request) {
+                            request.setRequestHeader("X-Token",localStorage.getItem('token'));
+                        },
+                        success: function(ajaxData) {
+                            //服务器返回响应，根据响应结果，分析是否成功；
+                            //alert(JSON.stringify(ajaxData));
+                            if(ajaxData.meta.success === true){
+                                //mui.toast(ajaxData.meta.message);
+                                authLogout();
+                                thirdType = 1;
+                                authLogin(type,'bind');
+                                /*if (qq){
+                                    authLogout();
+                                    thirdType = 1;
+                                    authLogin('qq','bind');
+                                }else{
+                                    authLogout();
+                                    thirdType = 1;
+                                    authLogin('weixin','bind');
+                                }*/
+                            }else{
+                                mui.toast(ajaxData.meta.message);
+                            }
+                        },
+                        error: function(xhr, type, errorThrown) {
+                            //异常处理；
+                            console.log(type);
+                            mui.toast('网络异常，请稍后再试');
+                        }
+                    });
+                    //是否选中记住密码
+                    /*var checked = $('#rememberPassword').is(':checked');
+                    var checked = $('#autologin').is(':checked');*/
+                }
+            },
+            error: function(xhr, type, errorThrown) {
+                //异常处理；
+                mui.toast('网络异常，请稍后再试',{ duration:'long', type:'div'});
+            }
+        });
+    }
+</script>
+</body>
+</html>

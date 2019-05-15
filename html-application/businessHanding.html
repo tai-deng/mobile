@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>业务办理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+    <link rel="stylesheet" type="text/css" href="../css/businessHanding.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+</head>
+<body>
+<style>
+    .mui-search:before
+    {
+        top: 25%;
+    }
+    option:hover{
+        background-color: #ff5800 !important;
+        color: #ffffff;
+    }
+    .option{
+        border: none !important;
+    }
+    .mui-select:before {
+        top: 0;
+        right: 1px;
+    }
+</style>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left "></a>
+    <h1 id="title" class="mui-title whitecolor font18">业务办理</h1>
+    <!--<div id="search" class="mui-input-row mui-search mui-title whitecolor font12 float-left" style="width: 70%;position: absolute !important;margin: auto;">
+        <input type="search" class="mui-input-clear" placeholder="请输入业务关键字">
+    </div>-->
+</header>
+<div class="mui-content" style="margin-top: 45px;">
+    <div id="slider" class="mui-slider">
+        <div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="bacfff margin10px ridus5 maincolor" style="overflow: hidden;">
+                <a id="applyBusiness" class="mui-control-item" href="#item1mobile">
+                    我申请的业务
+                </a>
+                <a id="acceptBusiness" class="mui-control-item" href="#item2mobile">
+                    我受理的业务
+                </a>
+            </div>
+            <div id="buttons" style="line-height: 38px;" class="padding-left-right10px font12">
+                <div id="checkAll" class="mui-input-row mui-left blackcolor float-left display-none">
+                    <!--<input id="check" style="width: auto;margin-top: 13px; float: left;position: absolute;left: 0px;" name="checkbox" value="Item 1" type="checkbox" >-->
+                    <label style="float: right;width: auto;margin-top: 2px;">全选</label>
+                </div>
+                <div id="bulkManage" class="horbackground whitecolor float-left padding-left-right10px ridus5" style="line-height: 22px;margin-top: 8px;margin-right: 5px;">批量操作</div>
+                <div class="float-left graycolor display-none">当前记录数：<span id="recordNumber">5</span></div>
+                <div id="cancel" class="float-right maincolor display-none" style="padding-left: 5px;">取消</div>
+                <div id="selectArea" class="float-right mui-text-center mui-select">
+                    <select id="select" class="font12" style="margin-bottom: 0px;margin-top: 0px;padding: 3px 15px 3px 5px;">
+                        <option class="mui-text-center option" grade="1" value="">全部</option>
+                        <option class="option shenqing " value="待审批" grade="2">待审批</option>
+                        <option class="shenqing " value="审批中" grade="3">审批中</option>
+                        <option class="shenqing " value="审批通过" grade="4">已通过</option>
+                        <option class="shenqing " value="审批驳回" grade="5">被驳回</option>
+                        <option class="shenqing " value="已撤销" grade="6">已撤销</option>
+                        <option class="option shouli " value="审批中" grade="2">待您审批</option>
+                        <option class="shouli " value="审批不通过" grade="3">您已驳回</option>
+                        <option class="shouli " value="审批通过" grade="4">您已通过</option>
+                    </select>
+                </div>
+                <span class="mui-icon iconfont icon-quanbu float-right display-none" style="border: none;margin-top: 5px;"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="mui-slider-group">
+            <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                <!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper" data-pullrefresh="1">-->
+                    <div id="scroll1" class="mui-scroll-wrapper" >
+                        <div class="mui-scroll">
+                            <div id="myApplyTemp">
+                                <li id="applyNoData" class="display-none mui-text-center padding-10 graycolor">暂时无业务数据</li>
+                               <!-- <ul class="mui-table-view margintop-10px" data-id="'+ajaxData.data.activitiVo[i].id+'" style="border-bottom: 1px solid #dddddd;">
+                                <li class="mui-table-view-cell font16" style="padding: 0px 10px;">
+                                    <div class="mui-input-row mui-left">
+                                        <input class="display-none list" data-id="'+ajaxData.data.activitiVo[i].id+'" style="width: auto;margin-top: 13px; float: left;position: absolute;" name="checkbox" value="Item1" type="checkbox" >
+                                        <label style="width: 100%;">
+                                            <span class="float-left">lala</span>
+                                            <span id="applyStatus" class="float-right maincolor">一万场</span>
+                                            <span id="applyEvaluate" data-name="调课申请" class="float-right horbackground whitecolor font12 padding-left-right10px line20 margin-right10px">评价</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>;-->
+                            </div>
+                        </div>
+                    </div>
+                <!--</div>-->
+            </div>
+            <div id="item2mobile" class="mui-slider-item mui-control-content">
+                <div id="scroll2" class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <div class="mui-loading">
+                            <div class="mui-spinner">
+                            </div>
+                        </div>
+                        <div id="myAcceptTemp">
+                            <li id="acceptNoData" class="display-none mui-text-center padding-10 graycolor">暂时无业务数据</li>
+                        </div>
+                    </div>
+                </div>
+                <div id="acceptDelete" style="width: 100%;position: fixed;bottom: 50px;z-index: 9999999;"
+                     class="bulkdelete whitecolor display-none ridus5  mui-text-center padding-5" >
+                    <div id="accept_agree" class="ridus5 horbackground mui-text-center padding-5 float-left" style="width: 45%;">批量同意</div>
+                    <div id="accept_disagree" class="ridus5 horbackground mui-text-center padding-5 float-right" style="width: 45%;">批量驳回</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/core.js"></script>
+<script src="../js/cipher-core.js"></script>
+<script src="../js/mode-ecb.js"></script>
+<script src="../js/tripledes.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/mui.picker.min.js"></script>-->
+<script src="../js/mui.pullToRefresh.js"></script>
+<script src="../js/mui.pullToRefresh.material.js"></script>
+<script src="../js/biz/businessHanding.js"></script>
+<script>
+    mui.init({
+        swipeBack: false
+    });
+</script>
+
+</body>
+</html>

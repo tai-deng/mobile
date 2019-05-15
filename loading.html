@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>登录页</title>
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="css/mui.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link rel="stylesheet" type="text/css" href="css/icon/iconfont.css">
+    <style>
+        .mui-input-row label {
+            line-height: 1.2;
+            float: left;
+            width: 20%;
+            padding: 11px 15px;
+        }
+        .mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea {
+            float: right;
+            width: 80%;
+        }
+        #cnzz_stat_icon_1265107497 {display: none;}
+    </style>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1265107497'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1265107497' type='text/javascript'%3E%3C/script%3E"));</script>
+</head>
+<body id="body" style="background:url('img/bj.jpg'); background-repeat: no-repeat;background-size:100% 100%;">
+<!--<header class="mui-bar mui-bar-nav">
+    <h1 class="mui-title whitecolor font18">登录</h1>
+</header>-->
+<div class="mui-content">
+    <ul class="mui-text-center" style="margin-top: 5%;">
+        <li><img src="img/logo-login.png" style="width: 38%;"/></li>
+        <li><img src="img/download.png" style="width: 70%;"/></li>
+    </ul>
+    <form id='login-form' class="orangeborder" style="margin: 8% 15px 0px 15px;border-radius: 5px;">
+        <div class="mui-input-row line60 whitecolor orangrborder-bottom">
+            <label>
+                <!--<img src="img/number.png" style="height: 30px;"/>-->
+                <span class="mui-icon iconfont icon-zhanghao1 font26"></span>
+            </label>
+            <input id='account' type="text" class="mui-input-clear font14 mui-input line60 new-input" placeholder="请输入手机号/身份证号/用户名">
+        </div>
+        <div class="mui-input-row line60 whitecolor">
+            <label>
+                <!--<img src="img/password.png" style="height: 30px;">-->
+                <span class="mui-icon iconfont icon-mima font26"></span>
+            </label>
+            <input id='password' type="password" class="mui-input-clear mui-input font14 line60 new-input" placeholder="请输入密码" >
+        </div>
+    </form>
+    <div class="whitecolor font12 padding-10">注：
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;1、如使用学工号登录请在前面加上姓名全拼
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;2、如初始用户名已设置修改，请使用用户名登录
+    </div>
+    <!--<form class="font14 whitecolor" style="margin: 5% 10px;">
+        <div class="mui-input-row float-left">
+            <input id="rememberPassword" class="load-check" name="checkbox" value="Item 1" type="checkbox" >
+            <label class="load-check-text">记住密码</label>
+        </div>
+        <div class="mui-input-row float-left" style="margin-left: 30px;">
+            <input id="autologin" class="load-check" name="checkbox" value="Item 1" type="checkbox" >
+            <label class="load-check-text">自动登录</label>
+        </div>
+<div style="clear: both"></div>
+    </form>-->
+    <div class="mui-content-padded margintop-20px padding-top10">
+        <button id='login' class="mui-btn mui-btn-block maincolor background ridus5 font18">登 录</button>
+        <div class="mui-text-center" style="margin-top: 6%;"><!--<img src="img/circular.png" style="height:35px;"/>--></div>
+        <div id='forgetPassword' class="mui-text-center whitecolor font16" style="margin-top: 3%;">忘记密码?</div>
+    </div>
+    <table id="thirdLogin" class="mui-text-center whitecolor font12" style="width: 80%;margin: auto; margin-bottom: 10px;">
+        <tr>
+            <td colspan="3">第三方登录</td>
+        </tr>
+        <tr>
+            <td id="QQ" class="padding-top10">
+                <div><img src="img/qq.png" class="width25"></div>
+                <div>QQ</div>
+            </td>
+            <td id="weichat" class="padding-top10">
+                <div><img src="img/weixin.png" class="width25"></div>
+                <div>微信</div>
+            </td>
+            <!--<td id="weibo" class="padding-top10">
+                <div><img src="img/weibo.png" class="width20"></div>
+                <div>微博</div>
+            </td>-->
+        </tr>
+    </table>
+</div>
+<script src="js/mui.min.js"></script>
+<script src="js/jquery-2.1.3.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/core.js"></script>
+<script src="js/cipher-core.js"></script>
+<script src="js/mode-ecb.js"></script>
+<script src="js/tripledes.js"></script>
+<script src="js/config.js"></script>
+<script src="js/biz/loading.js"></script>
+</body>
+</html>

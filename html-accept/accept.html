@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>审批</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/approveComplete.css">
+    <link rel="stylesheet" href="../css/approvalFailed.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">查看详情</h1>
+</header>
+<div class="mui-content content">
+    <ul>
+        <li class="line40 font16 padding-left-right10px">
+            当前状态：
+            <span id="status" class="horbackground padding-left-right10px font14 whitecolor ridus3">审批中</span>
+            <!--<span class="maincolor float-right paddingright10">撤销申请</span>-->
+        </li>
+        <li class="comp-statu paddingleft10px">
+            <div class="nearsite-message font14">
+                <table style="width: 100%;" id="statusContent">
+                    <tr>
+                        <td class="com-stutas-submit">
+                            <div class="com-stutas-line1">qian</div>
+                        </td>
+                        <td style="width: 18px;">
+                            <div class="iconfont icon-wancheng com-stutas-img1 font18 maincolor"></div>
+                        </td>
+                        <td>
+                            <div class="comp-status-backg">
+                                <span id="step1-text">发起申请成功</span>
+                                <div id="step1-time">2017-02-24 14：00</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="com-stutas-line2-gray verticaltop">
+                            <div class="com-stutas-line3">qian</div>
+                        </td>
+                        <td class="verticaltop">
+                            <div class="iconfont icon-wancheng com-stutas-img2 font18 backgroundcolor"></div>
+                            <!--<img src="../img/icon-none.png" class="com-stutas-img2">-->
+                        </td>
+                        <td>
+                            <div class="margintop-20px" style="margin-top: 33px !important;">
+                                <span id="step2-text">信息处待审批</span>
+                            </div>
+                            <div id="step2-message" class=" margintop-10px">
+                                <table class="font14 mui-text-center" style="width: 100%;">
+                                    <tr class="grayborder height30px" >
+                                        <td id="step2-agree" class="table-tr">同意</td>
+                                        <td id="step2-disagree">不同意</td>
+                                    </tr>
+                                    <tr class="height30px" >
+                                        <td colspan="2">
+                                            <textarea class="font14 border-top-none" id="step2-textarea" rows="3" placeholder="请输入审批意见（非必填）"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <button id="step2-submit" type="button" class="mui-btn ridus5 horbackground mui-btn-outlined whitecolor font18 float-right"
+                                        style="width: 50%;line-height: 30px;border: none;">
+                                    确定
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="xiaozhang">
+                            <div class="com-stutas-line3-gray">qian</div>
+                        </td>
+                        <td class="verticaltop">
+                            <div class="iconfont icon-wancheng com-stutas-img4 font18 backgroundcolor"></div>
+                            <!--<img src="../img/icon-none.png" class="com-stutas-img4">-->
+                        </td>
+                        <td>
+                            <div class="margintop-20px" >
+                                <span id="step3-text">校长待审批</span>
+                            </div>
+                            <!--<div class="comp-status-tips">
+                                审核不通过，信息填写不规范。
+                            </div>-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+        <li class="comp-statu margintop-10px padding-10">
+            <div class="font16 paddingbottom5">申请详情</div>
+            <table id="table" class="font14 mui-text-center" style="width: 100%;">
+                <tr class="grayborder height30px" >
+                    <td class="table-left">申请人</td>
+                    <td>张三</td>
+                </tr>
+                <tr class="grayborder height30px" >
+                    <td class="table-left">所在系部</td>
+                    <td>机械系</td>
+                </tr>
+                <tr class="grayborder height30px" >
+                    <td class="table-left">调课班级</td>
+                    <td>123班</td>
+                </tr>
+                <tr class="grayborder height30px" >
+                    <td class="table-left">申请日期</td>
+                    <td>2017-06-30 11:00</td>
+                </tr>
+                <tr class="grayborder height30px table-display-none display-none">
+                    <td class="table-left">所在系部</td>
+                    <td>机械系</td>
+                </tr>
+                <tr class="grayborder height30px table-display-none display-none">
+                    <td class="table-left">调课班级</td>
+                    <td>123班</td>
+                </tr>
+            </table>
+        </li>
+        <li class="comp-statu padding-10 mui-text-center ">
+            <span id="xiala" class="mui-icon mui-icon-arrowdown"></span>
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="padding-10 fixed-bottom">
+    <button id="back" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1">
+        返回
+    </button>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/config.js"></script>
+<!--<script src="../js/biz/accept-information-part.js"></script>-->
+<script src="../js/biz/accept.js"></script>
+</body>
+</html>

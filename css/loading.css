@@ -1,0 +1,110 @@
+.mui-input-row {
+     clear: none;
+    overflow: hidden;
+}
+.load-check{
+    width: auto;margin-top: 13px; float: left;position: absolute;
+}
+.load-check-text{
+    display: inline;width: 100% !important;margin-left: 5px;
+}
+/*�ֻ�*/
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .line60{
+        height: 60px !important;
+    }
+    .line15{
+        line-height: 15px;
+    }
+    .new-input{
+        line-height: 41px !important;
+        height: 60px !important;
+    }
+    .mui-input-row .mui-input-clear ~ .mui-icon-clear, .mui-input-row .mui-input-speech ~ .mui-icon-speech, .mui-input-row .mui-input-password ~ .mui-icon-eye {
+        font-size: 20px;
+        position: absolute;
+        z-index: 1;
+        /*top: 15px;*/
+        top: 20px;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        color: #999;
+    }
+}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+    /* ����iphone5 */
+    .line60{
+        height: 50px !important;
+    }
+    .line15{
+        line-height: 5px;
+    }
+    .new-input{
+        line-height: 36px !important;
+        height: 50px !important;
+    }
+    .mui-input-row .mui-input-clear ~ .mui-icon-clear, .mui-input-row .mui-input-speech ~ .mui-icon-speech, .mui-input-row .mui-input-password ~ .mui-icon-eye {
+        font-size: 20px;
+        position: absolute;
+        z-index: 1;
+        top: 15px;
+        /* top: 20px; */
+        right: 0;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        color: #999;
+    }
+}
+/*6*/
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+    .line60{
+        height: 60px !important;
+    }
+    .line15{
+        line-height: 15px;
+    }
+    .new-input{
+        line-height: 41px !important;
+        height: 60px !important;
+    }
+    .mui-input-row .mui-input-clear ~ .mui-icon-clear, .mui-input-row .mui-input-speech ~ .mui-icon-speech, .mui-input-row .mui-input-password ~ .mui-icon-eye {
+        font-size: 20px;
+        position: absolute;
+        z-index: 1;
+        /*top: 15px;*/
+        top: 20px;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        color: #999;
+    }
+}
+/*6+*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    .line60{
+        height: 60px !important;
+    }
+    .line15{
+        line-height: 16px;
+    }
+    .new-input{
+        line-height: 41px !important;
+        height: 60px !important;
+    }
+    .mui-input-row .mui-input-clear ~ .mui-icon-clear, .mui-input-row .mui-input-speech ~ .mui-icon-speech, .mui-input-row .mui-input-password ~ .mui-icon-eye {
+        font-size: 20px;
+        position: absolute;
+        z-index: 1;
+        /*top: 15px;*/
+        top: 20px;
+        right: 0;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        color: #999;
+    }
+}

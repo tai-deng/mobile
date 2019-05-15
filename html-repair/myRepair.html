@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我要报修</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <link rel="stylesheet" href="../css/repair.css">
+    <link rel="stylesheet" href="../css/mui.picker.min.css">
+<style>
+    .mui-input-row label {
+        line-height: 1.1;
+        float: left;
+        padding: 10px 10px;
+    }
+</style>
+
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">我要报修</h1>
+</header>
+<div class="mui-content bacfff content">
+    <form id="table" class="mui-input-group font14">
+        <div id="select_xiangmu_area" class="mui-input-row height-auto">
+            <label class=" width40  lineheight-25px iconfont">
+                <span class="mui-icon iconfont icon-baoxiu mui-active" style="/*color: #008de6;*/margin-right: 3px;"></span><span class="font14 font-family">报修项目:</span>
+            </label>
+            <select name="select" required="true" id="select_xiangmu" class="width60 margintop-5px">
+                <option value="0"  selected="true">请选择报修的项目</option>
+            </select>
+        </div>
+        <div id="select_quyuBig_area" class="mui-input-row height-auto">
+            <label class="width40 lineheight-25px iconfont">
+                <span class="mui-icon iconfont icon-quyu mui-active" style="margin-right: 3px;"></span><span class="font14 font-family">报修区域:</span>
+            </label>
+            <select name="select" required="true" id="select_quyuBig" class="width60 margintop-5px">
+                <option value="0" class="graycolor">请选择报修区域</option>
+            </select>
+        </div>
+        <div id="select_quyuSmall_area" class="mui-input-row height-auto">
+            <label class=" width40  lineheight-25px iconfont">
+                <!--<span class="mui-icon iconfont icon-xingbie" style="color: #ff0000;"></span>报修项目:-->
+            </label>
+            <select name="select" required="true" id="select_quyuSmall" class="width60 margintop-5px">
+                <option value="0" class="graycolor">请继续选择</option>
+            </select>
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-dizhi mui-active" style="/*color: #00a918;*/margin-right: 3px;"></span><span class="">详细地址:</span>
+            </label>
+            <input id="adress" required="true" class="width60 lineheight-25px height-auto" type="text" placeholder="请输入详细地址，如：房间号"/>
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-description mui-active" style="/*color: #ff5800;*/margin-right: 3px;"></span>详细描述:
+            </label>
+            <textarea class="width60 lineheight-25px height-auto" required="true" type="text" id="description" rows="3" placeholder="请描述物品及损坏情况"></textarea>
+        </div>
+        <!--照片-->
+        <div id="notAndroid" class="mui-input-row height-auto padding-10 display-none" >
+            <div class="z_photo ">
+                <div class="z_file">
+                    <!--<input type="file" name="file" id="file_input" accept="image/*" multiple />-->
+                    <input  id="file_input" type="file"  accept="image/*;"/>
+                </div>
+               <!-- <div class="z_addImg" id="img01">
+                    <img src="blob:http://localhost:63342/aa5bdee8-edee-46a6-85b0-a4b7450eb05f">
+                </div>-->
+                <!--<canvas class="z_addImg display-none"></canvas>-->
+                <div id="PicUpload1"></div>
+            </div>
+        </div>
+        <div id="Android" class="mui-input-row height-auto padding-10 display-none" >
+            <div id='image-list' class="row image-list z_photo">
+                <!-- <input id="upload_image" type="file" name="image" accept="image/*" /> -->
+                <div class="image-item space float-left"><!--onclick="showActionSheet()"-->
+                    <div class="image-up" style="padding-right: 0.2rem;"><img src="../img/img.png"/></div>
+                    <!--<input id="file_input" class="" type="file"/>-->
+                </div>
+                <!--<canvas class="z_addImg display-none"></canvas>-->
+                <div id="PicUpload" class="float-left" ></div>
+                <input type="hidden" id="picIndex" value="0"/>
+            </div>
+        </div>
+        <!-- <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px iconfont icon-xiala">
+                <span class="mui-icon iconfont icon-yuyue mui-active" style="/*color: #00a918;*/margin-right: 3px;"></span><span class="font14 font-family">预约时间:</span>
+            </label>
+            <input id="date" required="false" class="date width60 lineheight-25px height-auto" type="text" placeholder="请选择时间(非必填)">
+            data-options="{&quot;type&quot;:&quot;date&quot;,&quot;beginYear&quot;:1880,&quot;endYear&quot;:3020}">
+        </div> -->
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-ren mui-active" style="/*color: #008de6;*/margin-right: 3px;"></span>报修人:
+            </label>
+            <input id="repairPeople" required="true" class="width60 lineheight-25px height-auto" type="text" placeholder="请输入您的姓名"/>
+        </div>
+        <div class="mui-input-row height-auto" >
+            <label class="width40  lineheight-25px">
+                <span class="mui-icon iconfont icon-lianxidianhua mui-active" style="/*color: #ff0000;*/margin-right: 3px;"></span>联系电话:
+            </label>
+            <input id="repairPhone" required="true" class="width60 lineheight-25px height-auto bluecolor" type="text" placeholder="请输入您的手机号码">
+        </div>
+        <div class="padding-10 fixed-bottom">
+            <button id="submit" type="button" class="mui-btn horbackground ridus5 mui-btn-outlined whitecolor font18 btn1"/>
+                立即报修
+            </button>
+        </div>
+    </form>
+
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/jquery-form.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../js/messages_zh.js"></script>
+<script src="../js/mui.picker.min.js"></script>
+<script src="../js/biz/myRepair.js"></script>
+</body>
+</html>

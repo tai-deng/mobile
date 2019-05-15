@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通知列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/appIndex.css">
+    <!--<link rel="stylesheet" href="../css/">-->
+    <link rel="stylesheet" type="text/css" href="../css/icon/iconfont.css">
+    <style>
+        .mui-table-view:after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 0px;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav horbackground" >
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title whitecolor font18">通知列表</h1>
+</header>
+<div class="mui-content" >
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper" style="top: 45px;">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <div id="listTemp" class="mui-table-view ">
+                <!--<ul class="mui-table-view bachui padding-10">
+                    <li class="mui-table-view-cell mui-media mui-text-center font12 graycolor">
+                        昨天 16:30
+                    </li>
+                    <li data-id="" class="list bacfff padding-10 ridus5 shadow">
+                        <div class="font16 paddingbottom5">年度大会隆重举行</div>
+                        <div class="font14 gray-8color mui-ellipsis-2">
+                            嘉杰集团2017年度大会1月24日在隆华大酒店举行，费东平董事长在年会上发表了有关于工作学习两不误的演讲
+                        </div>
+                    </li>
+                </ul>
+                <ul class="mui-table-view bachui padding-10">
+                    <li class="mui-table-view-cell mui-media mui-text-center font12 graycolor">
+                        昨天 16:30
+                    </li>
+                    <li data-id="" class="list bacfff padding-10 ridus5 shadow">
+                        <div class="font16 paddingbottom5">年度大会隆重举行</div>
+                        <div class="font14 gray-8color mui-ellipsis-2">
+                            嘉杰集团2017年度大会1月24日在隆华大酒店举行，费东平董事长在年会上发表了有关于工作学习两不误的演讲
+                        </div>
+                    </li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/template.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/URI.min.js"></script>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/mui.pullToRefresh.js"></script>
+<script src="../js/mui.pullToRefresh.material.js"></script>
+<script src="../js/mui.picker.min.js"></script>
+<script src="../js/biz/noticeList.js"></script>
+</body>
+</html>
+
+
+
+
+
