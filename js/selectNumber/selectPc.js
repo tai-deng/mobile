@@ -222,10 +222,10 @@
     function getQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
-        var r = '?siteCode=58e8599b9d19d34e386c899fbc4508bc&flag=0&payFlag=1&amount=0.01&backUrl=http://szxy.worldve.com/zhmh/weixin/togyxz&name=111&cerId=430721699002154613&mobileno=15116149838&province=123&city=123&county=123&detailedAddress=123'.substr(1).match(reg);
-        // var r = window.location.search.substr(1).match(reg);
-        var q = 'mobile/html-selectNumber/selectPc.html'.substr(1).match(reg_rewrite);
-        // var q = window.location.pathname.substr(1).match(reg_rewrite);
+        // var r = '?siteCode=58e8599b9d19d34e386c899fbc4508bc&flag=0&payFlag=1&amount=0.01&backUrl=http://szxy.worldve.com/zhmh/weixin/togyxz&name=111&cerId=430721699002154613&mobileno=15116149838&province=123&city=123&county=123&detailedAddress=123'.substr(1).match(reg);
+        var r = window.location.search.substr(1).match(reg);
+        // var q = 'mobile/html-selectNumber/selectPc.html'.substr(1).match(reg_rewrite);
+        var q = window.location.pathname.substr(1).match(reg_rewrite);
         if (r != null) {
             return unescape(r[2]);
         } else if (q != null) {
